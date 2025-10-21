@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../gilroy.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Cart CSS remains mostly the same, some adjustments are needed */
 *{
     margin: 0;

@@ -4,64 +4,102 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NGO's Near You</title>
+    <link rel="stylesheet" href="../stylesheets/ngo.css" />
     <style>
+      @font-face {
+        font-family: 'Gilroy';
+        src: url('../gilroy.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      * {
+        font-family: 'Gilroy', sans-serif;
+      }
+
       body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
         margin: 0;
-        font-family: "gilroy", sans-serif;
+        padding: 20px;
         background-color: #f3f4f6;
+        min-height: 100vh;
+      }
+
+      .poppins {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: normal;
       }
 
       #container {
-        width: 80%;
-        max-width: 1200px;
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
         text-align: center;
       }
 
       h1 {
         font-size: 32px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+        margin-top: 0;
         color: #333;
       }
 
-      select {
-        width: 100%;
-        max-width: 400px;
-        padding: 15px;
-        font-size: 18px;
+      .filter-section {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+      }
+
+      .filter-section label {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+      }
+
+      select,
+      input[type="text"] {
+        padding: 12px 15px;
+        font-size: 16px;
         border: 1px solid #ddd;
         outline: none;
-        margin-bottom: 30px;
         border-radius: 8px;
+        background-color: white;
+        min-width: 250px;
+      }
+
+      input[type="text"]::placeholder {
+        color: #999;
       }
 
       .people {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 30px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+        justify-items: center;
       }
 
       .person {
-        flex: 0 0 calc(33.33% - 40px);
-        max-width: calc(33.33% - 40px);
+        width: 100%;
+        max-width: 280px;
         border-radius: 12px;
         overflow: hidden;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease;
         cursor: pointer;
+        background-color: white;
       }
 
       .person:hover {
         transform: translateY(-10px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
       }
 
       .person img {
         width: 100%;
-        height: 200px;
+        height: 180px;
         border-radius: 12px 12px 0 0;
         object-fit: cover;
         object-position: center;
@@ -71,43 +109,56 @@
         margin: 15px 0;
         font-size: 18px;
         color: #333;
-        background-color: #fff;
-        padding: 10px;
-        border-radius: 0 0 12px 12px;
+        padding: 0 15px 15px 15px;
+      }
+
+      .no-results {
+        grid-column: 1 / -1;
+        font-size: 18px;
+        color: #666;
+        padding: 40px;
       }
     </style>
   </head>
 
-  <body>
+  <body class="poppins">
     <div id="container">
       <h1>The NGO's Present near You!</h1>
-      <select id="location">
-        <option value="None">None</option>
-        <option value="Banjara Hills">Banjara Hills</option>
-        <option value="Jubilee Hills">Jubilee Hills</option>
-        <option value="Gachibowli">Gachibowli</option>
-        <option value="Hitech City">Hitech City</option>
-        <option value="Madhapur">Madhapur</option>
-        <option value="Kondapur">Kondapur</option>
-        <option value="Ameerpet">Ameerpet</option>
-        <option value="Begumpet">Begumpet</option>
-        <option value="Somajiguda">Somajiguda</option>
-        <option value="Kukatpally">Kukatpally</option>
-        <option value="Secunderabad">Secunderabad</option>
-        <option value="Uppal">Uppal</option>
-        <option value="Miyapur">Miyapur</option>
-        <option value="LB Nagar">LB Nagar</option>
-        <option value="Dilsukhnagar">Dilsukhnagar</option>
-        <option value="KPHB">KPHB</option>
-        <option value="Manikonda">Manikonda</option>
-        <option value="Hi-tech City">Hi-tech City</option>
-        <option value="Kothaguda">Kothaguda</option>
-        <option value="KPHB Phase 5">KPHB Phase 5</option>
-        <option value="JNTU">JNTU</option>
-        <option value="Medchal">Medchal</option>
-        <option value="Chintal">Chintal</option>
-        <option value="Suchitra">Suchitra</option>
-      </select>
+      
+      <div class="filter-section">
+        <label for="searchInput">Search NGO:</label>
+        <input type="text" id="searchInput" placeholder="Type NGO name...">
+        
+        <label for="location">Filter by Location:</label>
+        <select id="location">
+          <option value="None">All Locations</option>
+          <option value="Banjara Hills">Banjara Hills</option>
+          <option value="Jubilee Hills">Jubilee Hills</option>
+          <option value="Gachibowli">Gachibowli</option>
+          <option value="Hitech City">Hitech City</option>
+          <option value="Madhapur">Madhapur</option>
+          <option value="Kondapur">Kondapur</option>
+          <option value="Ameerpet">Ameerpet</option>
+          <option value="Begumpet">Begumpet</option>
+          <option value="Somajiguda">Somajiguda</option>
+          <option value="Kukatpally">Kukatpally</option>
+          <option value="Secunderabad">Secunderabad</option>
+          <option value="Uppal">Uppal</option>
+          <option value="Miyapur">Miyapur</option>
+          <option value="LB Nagar">LB Nagar</option>
+          <option value="Dilsukhnagar">Dilsukhnagar</option>
+          <option value="KPHB">KPHB</option>
+          <option value="Manikonda">Manikonda</option>
+          <option value="Hi-tech City">Hi-tech City</option>
+          <option value="Kothaguda">Kothaguda</option>
+          <option value="KPHB Phase 5">KPHB Phase 5</option>
+          <option value="JNTU">JNTU</option>
+          <option value="Medchal">Medchal</option>
+          <option value="Chintal">Chintal</option>
+          <option value="Suchitra">Suchitra</option>
+        </select>
+      </div>
+      
       <div class="people" id="people"></div>
     </div>
 
@@ -267,39 +318,49 @@
           location: "Kukatpally",
         },
       ];
-      let yo = "";
-      data.forEach((e) => {
-        yo += `
-                <div class="person">
-                    <img src="${e.src}" alt="Portrait" title="Portrait"> 
-                    <h4>${e.name}</h4>
-                </div>
-            `;
-      });
-      document.querySelector("#people").innerHTML = yo;
 
-      let select = document.getElementById("location");
-      select.addEventListener("change", () => {
-        var matching = data.filter((e) => {
-          return e.location
-            .toLowerCase()
-            .startsWith(select.value.toLowerCase());
+      // Display all NGOs initially
+      function displayNGOs(ngoList) {
+        if (ngoList.length === 0) {
+          document.querySelector("#people").innerHTML = '<div class="no-results">No NGOs found matching your criteria.</div>';
+          return;
+        }
+
+        let yo = "";
+        ngoList.forEach((e) => {
+          yo += `
+            <div class="person">
+              <img src="${e.src}" alt="${e.name}" title="${e.name}"> 
+              <h4>${e.name}</h4>
+            </div>
+          `;
         });
-
-        let newUsers = "";
-        matching.forEach((e) => {
-          newUsers += `
-                    <div class="person">
-                        <img src="${e.src}" alt="Portrait" title="Portrait"> 
-                        <h4>${e.name}</h4>
-                    </div>`;
-        });
-        document.querySelector("#people").innerHTML = newUsers;
-
+        document.querySelector("#people").innerHTML = yo;
         addClickListener();
-      });
+      }
 
-      addClickListener();
+      // Initial display
+      displayNGOs(data);
+
+      // Search functionality
+      const searchInput = document.getElementById("searchInput");
+      const locationSelect = document.getElementById("location");
+
+      function filterNGOs() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const locationTerm = locationSelect.value.toLowerCase();
+
+        let filtered = data.filter((e) => {
+          const matchesSearch = e.name.toLowerCase().includes(searchTerm);
+          const matchesLocation = locationTerm === "none" || e.location.toLowerCase().startsWith(locationTerm);
+          return matchesSearch && matchesLocation;
+        });
+
+        displayNGOs(filtered);
+      }
+
+      searchInput.addEventListener("input", filterNGOs);
+      locationSelect.addEventListener("change", filterNGOs);
 
       function addClickListener() {
         document.querySelectorAll(".person").forEach((item) => {

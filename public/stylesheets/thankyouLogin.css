@@ -1,5 +1,12 @@
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../gilroy.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Gilroy', 'Arial', sans-serif;
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;

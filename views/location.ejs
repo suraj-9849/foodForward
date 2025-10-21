@@ -7,11 +7,11 @@
   <title>My Live Location (Restaurant)</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="../stylesheets/style.css">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="relative flex flex-col h-screen">
+<body class="relative flex poppins flex-col h-screen">
   <div id="map" class="flex-1 z-10"></div>
   <div class="absolute bottom-0 w-full bg-white p-4 shadow-lg z-20 flex flex-col items-center">
     <p class="text-black font-bold text-xl mb-2">Upload the Correct Location</p>
@@ -79,19 +79,39 @@
     const socket = io();
 
     if (navigator.geolocation) {
-      navigator.geolocation.watchPosition((position) => {
+      navigator.geolocation.getCurrentPosition((position) => {
         const { latitude, longitude } = position.coords;
+        // Set map to user's location immediately
+        map.setView([latitude, longitude], 16);
+        // Add a marker for current location
+        L.marker([latitude, longitude]).addTo(map).bindPopup("Your Location");
+        // Emit to socket
         socket.emit("send-location", { latitude, longitude });
       }, (error) => {
         console.error("Geolocation error:", error);
+        alert("Please enable location access to see your location on the map.");
       }, {
         timeout: 5000,
         maximumAge: 0,
         enableHighAccuracy: true
       });
+
+      // Also watch position for continuous updates
+      navigator.geolocation.watchPosition((position) => {
+        const { latitude, longitude } = position.coords;
+        socket.emit("send-location", { latitude, longitude });
+      }, (error) => {
+        console.error("Geolocation watch error:", error);
+      }, {
+        timeout: 5000,
+        maximumAge: 0,
+        enableHighAccuracy: true
+      });
+    } else {
+      alert("Geolocation is not supported by your browser.");
     }
 
-    const map = L.map("map").setView([0, 0], 20);
+    const map = L.map("map").setView([20, 0], 13);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "FoodForward"
@@ -101,7 +121,7 @@
 
     socket.on("receive-location", (data) => {
       const { id, latitude, longitude } = data;
-      map.setView([latitude, longitude], 20);
+      map.setView([latitude, longitude], 16);
       if (markers[id]) {
         markers[id].setLatLng([latitude, longitude]);
       } else {
