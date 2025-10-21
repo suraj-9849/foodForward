@@ -1,133 +1,145 @@
 @font-face {
-  font-family: 'Gilroy';
-  src: url('../gilroy.ttf') format('truetype');
+  font-family: "Gilroy";
+  src: url("../gilroy.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Gilroy', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gilroy", sans-serif;
 }
 
-html, body {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f4f4f4;
+html,
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f4f4;
 }
 
 form {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 500px; 
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
 }
 
 label {
-    font-size: 0.9em;
-    color: #333;
-    margin-bottom: 8px;
-    display: block;
+  font-size: 0.9em;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
 }
 
-input[type="text"], .location-button {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 0.9em;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+input[type="text"],
+.location-button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9em;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-input[type="text"]:focus, .location-button:focus {
-    border-color: #ff5722;
-    box-shadow: 0 0 5px rgba(255, 87, 34, 0.3);
-    outline: none;
+input[type="text"]:focus,
+.location-button:focus {
+  border-color: #ff5722;
+  box-shadow: 0 0 5px rgba(255, 87, 34, 0.3);
+  outline: none;
 }
 
 .input-error {
-    border-color: red;
+  border-color: red;
 }
 
 .error-message {
-    color: red;
-    font-size: 0.9em;
-    display: none; 
-    margin-top: -15px;
-    margin-bottom: 15px;
+  color: red;
+  font-size: 0.9em;
+  display: none;
+  margin-top: -15px;
+  margin-bottom: 15px;
 }
 
-button, #submit {
-    padding: 12px 24px;
-    background-color: #ff5722;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 0.9em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+button,
+#submit {
+  padding: 12px 24px;
+  background-color: #ff5722;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-button:hover, #submit:hover {
-    background-color: #ff7043;
+button:hover,
+#submit:hover {
+  background-color: #ff7043;
 }
 
 ul {
-    margin-top: 20px;
-    padding: 0;
-    list-style: none;
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
 }
 
 li {
-    margin-bottom: 10px;
-    padding: 12px;
-    background-color: #f9f9f9;
-    border-radius: 4px;
-    font-size: 0.9em;
-    border: 1px solid #e0e0e0;
+  margin-bottom: 10px;
+  padding: 12px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  font-size: 0.9em;
+  border: 1px solid #e0e0e0;
 }
 
 h2 {
-    font-size: 1.5em;
-    color: #333;
-    margin-bottom: 20px;
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 20px;
 }
 
 .form-section {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
-#addrem, #buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1vw;
+#addrem,
+#buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1vw;
 }
 
-button:focus, input[type="text"]:focus {
-    outline: 2px solid #ff5722;
+button:focus,
+input[type="text"]:focus {
+  outline: 2px solid #ff5722;
 }
 
 @media (max-width: 600px) {
-    form {
-        width: 90%;
-        padding: 20px;
-    }
+  form {
+    width: 90%;
+    padding: 20px;
+  }
 
-    h2 {
-        font-size: 1.2em;
-    }
+  h2 {
+    font-size: 1.2em;
+  }
 
-    input[type="text"], .location-button, button, #submit {
-        padding: 10px;
-        font-size: 0.8em;
-    }
+  input[type="text"],
+  .location-button,
+  button,
+  #submit {
+    padding: 10px;
+    font-size: 0.8em;
+  }
 }

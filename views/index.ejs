@@ -1,311 +1,359 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title><%= title %></title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+  </head>
 
-<head>
-  <title>
-    <%= title %>
-  </title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css" />
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="../stylesheets/style.css" />
-
-</head>
-
-<body class="poppins">
-  <div id="main">
-    <div id="page1">
-      <div id="nav">
-        <h1 onclick="redirectToHome()"><img
-            style="height: 4vh; object-fit: cover; object-position: center; width: 13vw;margin-top: 3vh;"
-            src="../images/logo.png" alt=""></h1>
-        <div id="navpart-2">
-          <h1 id="home" onclick="redirectToHome()">Home</h1>
-          <h1 id="about" onclick="redirectToAbout()">About us</h1>
-          <h1 id="feeding" onclick="redirectToFeeding()"> Awards and Recognitions</h1>
-          <h1 id="Charity" onclick="redirectToCharity()">Charity</h1>
-          <h1 id="contact" onclick="redirectToContact()">Contact</h1>
-
+  <body class="poppins">
+    <div id="main">
+      <div id="page1">
+        <div id="nav">
+          <h1 onclick="redirectToHome()">
+            <img
+              style="
+                height: 4vh;
+                object-fit: cover;
+                object-position: center;
+                width: 13vw;
+                margin-top: 3vh;
+              "
+              src="../images/logo.png"
+              alt=""
+            />
+          </h1>
+          <div id="navpart-2">
+            <h1 id="home" onclick="redirectToHome()">Home</h1>
+            <h1 id="about" onclick="redirectToAbout()">About us</h1>
+            <h1 id="feeding" onclick="redirectToFeeding()">Awards and Recognitions</h1>
+            <h1 id="Charity" onclick="redirectToCharity()">Charity</h1>
+            <h1 id="contact" onclick="redirectToContact()">Contact</h1>
+            <% if (loggedIn) { %>
+            <h1 id="donations" onclick="redirectToDonations()">My Donations</h1>
+            <% } %>
+          </div>
+          <div
+            id="navpart-3"
+            style="border: 1px solid black; padding: 8px; border-radius: 8px; cursor: pointer"
+          >
+            <% if (loggedIn) { %>
+            <h1 style="font-size: 2.5vh" onclick="redirectToLogout()">Logout</h1>
+            <img src="../images/login.png" onclick="redirectToLogout()" />
+            <% } else { %>
+            <h1 style="font-size: 2.5vh" onclick="redirectToPartner()">Login</h1>
+            <img src="../images/login.png" onclick="redirectToPartner()" />
+            <% } %>
+          </div>
         </div>
-        <div id="navpart-3" style="border: 1px solid black;padding: 8px;border-radius: 8px;">
-          <!-- <button
+        <div id="hero">
+          <div id="left">
+            <h1>"Feed a soul, nourish the world: donate food today."</h1>
+            <h3>"If you can't feed a hundred people, then feed just one." - Mother Teresa</h3>
+          </div>
+          <div id="right">
+            <video autoplay loop muted src="../videos/video.mp4"></video>
+          </div>
+        </div>
+      </div>
+
+      <div id="page1half">
+        <h1>Did you know that we can make a difference in food waste?</h1>
+        <h1>
+          Guess What,the <b style="color: rgb(160, 237, 37)">FoodForward</b> lets you save unsold
+          food in your favourite restaurants from being thrown away
+        </h1>
+        <div id="goals">
+          The main ideology of <span id="info">FoodForward</span> is to connects
+          <span id="info">surplus restaurant food</span> with <span id="info">NGO's</span> ,
+          mitigating <span id="info">waste</span> and <span id="info">hunger</span>. Donations are
+          collected from restaurants and redistributed to <span id="info">NGOs</span>, addressing
+          food insecurity <span id="info">sustainably</span>.
+        </div>
+
+        <div id="donate_btn">
+          <div>
+            <strong>Donate</strong> with hope, lighting pathways to a brighter world. <br />
+            <strong>Donate</strong> a helping hand to those in need, turning sustenance into
+            support. <br />
+            <strong>Donate</strong> seeds of kindness, nurturing communities with generosity. <br />
+            <strong>Donate</strong> generously, for in our giving lies the power to uplift spirits.
+            <br />
+            <strong>Let's Donate</strong> together, creating a future where no one is left behind.
+            <br />
+          </div>
+          <div id="main_button">
+            <button
               id="donate"
               style="padding: 1vh 3vw; text-align: center; width: fit-content"
               onclick="redirectToDonate()"
             >
               <i class="ri-heart-fill"></i>Donate
-            </button> -->
-          <h1 style="font-size:2.5vh;">login</h1>
-          <img src="../images/login.png" onclick="redirectToPartner()">
-          <!-- <h1 id="partner" onclick="redirectToPartner()"></h1> -->
+            </button>
+          </div>
         </div>
       </div>
-      <div id="hero">
-        <div id="left">
-          <h1>"Feed a soul, nourish the world: donate food today."</h1>
-          <h3>"If you can't feed a hundred people, then feed just one." - Mother Teresa</h3>
+      <div class="container">
+        <div class="title">
+          FoodForward meets <br />
+          the following <br />
+          sustainable goals
         </div>
-        <div id="right">
-          <video autoplay loop muted src="../videos/video.mp4"></video>
+        <div class="goals">
+          <div class="goal">
+            <div class="icon zero-hunger"></div>
+            <span class="label">Zero Hunger</span>
+          </div>
+          <div class="goal">
+            <div class="icon quality-education"></div>
+            <span class="label">Quality Education</span>
+          </div>
+          <div class="goal">
+            <div class="icon no-poverty"></div>
+            <span class="label">No Poverty</span>
+          </div>
+          <div class="goal">
+            <div class="icon good-health"></div>
+            <span class="label">Good Health and Well-being</span>
+          </div>
+          <div class="goal">
+            <div class="icon gender-equality"></div>
+            <span class="label">Gender Equality</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div id="page1half">
-      <h1>Did you know that we can make a difference in food waste?</h1>
-      <h1>
-        Guess What,the <b style="color: rgb(160, 237, 37);">FoodForward</b> lets you save unsold food in your favourite
-        restaurants from being thrown away
-      </h1>
-      <div id="goals">The main ideology of <span id="info">FoodForward</span> is to connects <span id="info">surplus
-          restaurant food</span> with <span id="info">NGO's</span> , mitigating <span id="info">waste</span> and <span
-          id="info">hunger</span>. Donations are collected from restaurants and redistributed to <span
-          id="info">NGOs</span>, addressing food insecurity <span id="info">sustainably</span>.</div>
-
-      <div id="donate_btn">
-        <div> <strong>Donate</strong> with hope, lighting pathways to a brighter world. <br>
-          <strong>Donate</strong> a helping hand to those in need, turning sustenance into support. <br>
-          <strong>Donate</strong> seeds of kindness, nurturing communities with generosity. <br>
-          <strong>Donate</strong> generously, for in our giving lies the power to uplift spirits. <br>
-          <strong>Let's Donate</strong> together, creating a future where no one is left behind. <br>
+      <div class="program-container">
+        <div class="card">
+          <div
+            class="icon"
+            style="
+              background-image: url(&quot;https://rpgf.org/assets/images/communityDevelopment-logonew.png&quot;);
+            "
+          ></div>
+          <div class="program-name">Community Food Donations</div>
+          <div class="program-value">500,000 Meals Donated</div>
         </div>
-        <div id="main_button">
-          <button id="donate" style="padding: 1vh 3vw; text-align: center; width: fit-content"
-            onclick="redirectToDonate()">
-            <i class="ri-heart-fill"></i>Donate
-          </button>
+        <div class="card">
+          <div
+            class="icon"
+            style="
+              background-image: url(&quot;https://diademy.com/wp-content/uploads/2020/06/Bulk-SMS-for-NGO-e1592921630867.jpg&quot;);
+              object-fit: cover;
+            "
+          ></div>
+          <div class="program-name">NGO Support</div>
+          <div class="program-value">1 Million Beneficiaries</div>
+        </div>
+        <div class="card">
+          <div
+            class="icon"
+            style="
+              background-image: url(&quot;https://th.bing.com/th/id/OIP.ABakFZ6otRo_wdA0iPTxgAAAAA?w=360&h=360&rs=1&pid=ImgDetMain&quot;);
+            "
+          ></div>
+          <div class="program-name">Meals for Homeless</div>
+          <div class="program-value">20,000 Families Supported</div>
+        </div>
+        <div class="card">
+          <div
+            class="icon"
+            style="
+              background-image: url(&quot;https://imgs.search.brave.com/vj3t9pYov5PgjGa0PQJ3jwriAl-1kMI0zV_ZbhAXI6g/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzU2LzM1/LzI3LzU2MzUyN2Ri/ZDUwOTZjMzZlNWZj/ZWI4MjA4YTU0MTVk/LmpwZw&quot;);
+            "
+          ></div>
+          <div class="program-name">School Meal Programs</div>
+          <div class="program-value">400 Schools Covered</div>
+        </div>
+        <div class="card">
+          <div
+            class="icon"
+            style="
+              background-image: url(&quot;https://imgs.search.brave.com/4f-2nox2syPsP_RF2hUSD85oTv7Emq_bBc-x0BbOaPY/rs:fit:500:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA0Lzk0LzIzLzUy/LzM2MF9GXzQ5NDIz/NTIyM19mTjBzSGo1/UHM0QU9Zazd4TXdI/ald4SkQwbEhPTW0y/bC5qcGc&quot;);
+            "
+          ></div>
+          <div class="program-name">Food for Elderly</div>
+          <div class="program-value">30,000 Seniors Served</div>
         </div>
       </div>
-    </div>
-    <div class="container">
-      <div class="title">FoodForward meets <br> the following <br> sustainable goals </div>
-      <div class="goals">
-        <div class="goal">
-          <div class="icon zero-hunger"></div>
-          <span class="label">Zero Hunger</span>
+      <div id="page2">
+        <div id="scroll">
+          <h1>
+            "Did you know that approximately one-third of all food produced globally goes to waste?
+            That's over 1.3 billion tons of food wasted each year, while millions around the world
+            suffer from hunger and malnutrition."
+          </h1>
         </div>
-        <div class="goal">
-          <div class="icon quality-education"></div>
-          <span class="label">Quality Education</span>
-        </div>
-        <div class="goal">
-          <div class="icon no-poverty"></div>
-          <span class="label">No Poverty</span>
-        </div>
-        <div class="goal">
-          <div class="icon good-health"></div>
-          <span class="label">Good Health and Well-being</span>
-        </div>
-        <div class="goal">
-          <div class="icon gender-equality"></div>
-          <span class="label">Gender Equality</span>
-        </div>
+        <img src="../images/donate.jpg" alt="" />
       </div>
-    </div>
-
-    <div class="program-container">
-      <div class="card">
-        <div class="icon"
-          style="background-image: url('https://rpgf.org/assets/images/communityDevelopment-logonew.png')"></div>
-        <div class="program-name">Community Food Donations</div>
-        <div class="program-value">500,000 Meals Donated</div>
+      <div id="part2half">
+        <h1>Our Partners</h1>
+        <div class="people" id="people"></div>
       </div>
-      <div class="card">
-        <div class="icon"
-          style="background-image: url('https://diademy.com/wp-content/uploads/2020/06/Bulk-SMS-for-NGO-e1592921630867.jpg'); object-fit: cover;">
-        </div>
-        <div class="program-name">NGO Support</div>
-        <div class="program-value">1 Million Beneficiaries</div>
-      </div>
-      <div class="card">
-        <div class="icon"
-          style="background-image: url('https://th.bing.com/th/id/OIP.ABakFZ6otRo_wdA0iPTxgAAAAA?w=360&h=360&rs=1&pid=ImgDetMain')">
-        </div>
-        <div class="program-name">Meals for Homeless</div>
-        <div class="program-value">20,000 Families Supported</div>
-      </div>
-      <div class="card">
-        <div class="icon"
-          style="background-image: url('https://imgs.search.brave.com/vj3t9pYov5PgjGa0PQJ3jwriAl-1kMI0zV_ZbhAXI6g/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzU2LzM1/LzI3LzU2MzUyN2Ri/ZDUwOTZjMzZlNWZj/ZWI4MjA4YTU0MTVk/LmpwZw')">
-        </div>
-        <div class="program-name">School Meal Programs</div>
-        <div class="program-value">400 Schools Covered</div>
-      </div>
-      <div class="card">
-        <div class="icon"
-          style="background-image: url('https://imgs.search.brave.com/4f-2nox2syPsP_RF2hUSD85oTv7Emq_bBc-x0BbOaPY/rs:fit:500:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA0Lzk0LzIzLzUy/LzM2MF9GXzQ5NDIz/NTIyM19mTjBzSGo1/UHM0QU9Zazd4TXdI/ald4SkQwbEhPTW0y/bC5qcGc')">
-        </div>
-        <div class="program-name">Food for Elderly</div>
-        <div class="program-value">30,000 Seniors Served</div>
-      </div>
-    </div>
-    <div id="page2">
-      <div id="scroll">
-        <h1>
-          "Did you know that approximately one-third of all food produced globally goes to waste? That's over 1.3
-          billion tons of food wasted each year, while millions around the world suffer from hunger and malnutrition."
-        </h1>
-      </div>
-      <img src="../images/donate.jpg" alt="" />
-    </div>
-    <div id="part2half">
-      <h1>Our Partners</h1>
-      <div class="people" id="people"></div>
-    </div>
-    <div id="page3">
-      <div id="cards_1">
-        <div class="testimonial-container">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar"></div>
-            <div>
-              <div class="testimonial-name">largest FSN platform</div>
-              <div class="testimonial-company">FastForward is the largest FSN</div>
+      <div id="page3">
+        <div id="cards_1">
+          <div class="testimonial-container">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar"></div>
+              <div>
+                <div class="testimonial-name">largest FSN platform</div>
+                <div class="testimonial-company">FastForward is the largest FSN</div>
+              </div>
+            </div>
+            <div class="testimonial-text">
+              "Currently , FoodForward is the largest FSN , which is distributing over 10-12 Tons of
+              left-over food to restaurants"
             </div>
           </div>
-          <div class="testimonial-text">
-            "Currently , FoodForward is the largest FSN , which is distributing over 10-12 Tons of left-over food to
-            restaurants"
-          </div>
-        </div>
-        <div class="testimonial-container">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar"></div>
-            <div>
-              <div class="testimonial-name">1500+ restaurants</div>
-              <div class="testimonial-company">donation average : 4 tons </div>
+          <div class="testimonial-container">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar"></div>
+              <div>
+                <div class="testimonial-name">1500+ restaurants</div>
+                <div class="testimonial-company">donation average : 4 tons</div>
+              </div>
+            </div>
+            <div class="testimonial-text">
+              "More than 1500 restaurants are partnered and serving around 10,000-15000 needy ones."
             </div>
           </div>
-          <div class="testimonial-text">
-            "More than 1500 restaurants are partnered and serving around 10,000-15000 needy ones."
-          </div>
-        </div>
-        <div class="testimonial-container">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar"></div>
-            <div>
-              <div class="testimonial-name">10,000,000+ meals served</div>
-              <div class="testimonial-company">and still counting....</div>
+          <div class="testimonial-container">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar"></div>
+              <div>
+                <div class="testimonial-name">10,000,000+ meals served</div>
+                <div class="testimonial-company">and still counting....</div>
+              </div>
+            </div>
+            <div class="testimonial-text">
+              "FoodForward has helped in provind a total of 10,000,000 meals till the
+              establishment."
             </div>
           </div>
-          <div class="testimonial-text">
-            "FoodForward has helped in provind a total of 10,000,000 meals till the establishment."
-          </div>
-        </div>
-        <div class="testimonial-container">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar"></div>
-            <div>
-              <div class="testimonial-name">Labour reduction</div>
-              <div class="testimonial-company">around 4000 workers lessens</div>
+          <div class="testimonial-container">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar"></div>
+              <div>
+                <div class="testimonial-name">Labour reduction</div>
+                <div class="testimonial-company">around 4000 workers lessens</div>
+              </div>
             </div>
-          </div>
-          <div class="testimonial-text">
-            "Since the food which was about to be wated is now being distributed so it results in reduced garbage ."
+            <div class="testimonial-text">
+              "Since the food which was about to be wated is now being distributed so it results in
+              reduced garbage ."
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- <div className="translate-container">
+      <!-- <div className="translate-container">
       <div className="translate-label">Translate:</div>
       <div id="google_translate_element"></div>
     </div> -->
-    <footer>
-      <div class="footcontainer">
-        <div class="left">
-          <h2>Subscribe to Our Emails</h2>
-          <p style="margin: 0;
-            font-size: 15px;
-            color: white;
-            ">
-            Stay up to date with the latest at Feed the Need Missions,
-            delivered right to your inbox. Sign up below to subscribe to our
-            newsletter and email updates.
-          </p>
-          <form action="#" method="POST">
-            <div class="input-group">
-              <input type="email" name="email" placeholder="Email Address*" required />
-              <button type="submit">Subscribe</button>
-            </div>
-          </form>
+      <footer>
+        <div class="footcontainer">
+          <div class="left">
+            <h2>Subscribe to Our Emails</h2>
+            <p style="margin: 0; font-size: 15px; color: white">
+              Stay up to date with the latest at Feed the Need Missions, delivered right to your
+              inbox. Sign up below to subscribe to our newsletter and email updates.
+            </p>
+            <form action="#" method="POST">
+              <div class="input-group">
+                <input type="email" name="email" placeholder="Email Address*" required />
+                <button type="submit">Subscribe</button>
+              </div>
+            </form>
+          </div>
+          <div class="middle">
+            <h2>About Us</h2>
+            <ul>
+              <li><a href="#">Weekly Sites</a></li>
+              <li><a href="#">Disaster Relief</a></li>
+              <li><a href="#">Employment</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="right">
+            <h2>Get Involved</h2>
+            <ul>
+              <li><a href="#">Donate Now</a></li>
+              <li><a href="#">Volunteer</a></li>
+              <li><a href="#">Events</a></li>
+              <li><a href="#">Give Back Beef</a></li>
+              <li><a href="#">Table Talk</a></li>
+              <li><a href="#">Gobble Kits</a></li>
+            </ul>
+          </div>
         </div>
-        <div class="middle">
-          <h2>About Us</h2>
-          <ul>
-            <li><a href="#">Weekly Sites</a></li>
-            <li><a href="#">Disaster Relief</a></li>
-            <li><a href="#">Employment</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
-        </div>
-        <div class="right">
-          <h2>Get Involved</h2>
-          <ul>
-            <li><a href="#">Donate Now</a></li>
-            <li><a href="#">Volunteer</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">Give Back Beef</a></li>
-            <li><a href="#">Table Talk</a></li>
-            <li><a href="#">Gobble Kits</a></li>
-          </ul>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script>
+      var home = document.querySelector("#nav #navpart-2 #home");
+      var about = document.querySelector("#nav #navpart-2 #about");
+      function redirectToAbout() {
+        window.location.href = "/about";
+      }
+      function redirectToHome() {
+        window.location.href = "/";
+      }
+      function redirectToDonate() {
+        window.location.href = "/donate";
+      }
+      function redirectToContact() {
+        window.location.href = "/contact";
+      }
+      function redirectToFeeding() {
+        window.location.href = "/feeding";
+      }
+      function redirectToCharity() {
+        window.location.href = "/Charity";
+      }
+      function redirectToPartner() {
+        window.location.href = "/partner";
+      }
+      function redirectToLogout() {
+        window.location.href = "/logout";
+      }
+      function redirectToDonations() {
+        window.location.href = "/my-donations";
+      }
 
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
-  <script>
-    var home = document.querySelector("#nav #navpart-2 #home");
-    var about = document.querySelector("#nav #navpart-2 #about");
-    function redirectToAbout() {
-      window.location.href = "/about";
-    }
-    function redirectToHome() {
-      window.location.href = "/";
-    }
-    function redirectToDonate() {
-      window.location.href = "/donate";
-    }
-    function redirectToContact() {
-      window.location.href = "/contact";
-    }
-    function redirectToFeeding() {
-      window.location.href = "/feeding";
-    }
-    function redirectToCharity() {
-      window.location.href = "/Charity";
-    }
-    function redirectToPartner() {
-      window.location.href = "/partner";
-    }
+      //Translate code:
+      // const addGoogleTranslateScript = () => {
+      //   if (!document.querySelector('#google-translate-script')) {
+      //     const script = document.createElement('script');
+      //     script.id = 'google-translate-script';
+      //     script.src = "https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate";
+      //     script.async = true;
+      //     document.body.appendChild(script);
+      //   }
+      // };
 
+      // window.loadGoogleTranslate = () => {
+      //   if (!document.querySelector('.skiptranslate')) {
+      //     new window.google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+      //   }
+      // };
 
-    //Translate code:
-    // const addGoogleTranslateScript = () => {
-    //   if (!document.querySelector('#google-translate-script')) {
-    //     const script = document.createElement('script');
-    //     script.id = 'google-translate-script';
-    //     script.src = "https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate";
-    //     script.async = true;
-    //     document.body.appendChild(script);
-    //   }
-    // };
-
-    // window.loadGoogleTranslate = () => {
-    //   if (!document.querySelector('.skiptranslate')) {
-    //     new window.google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
-    //   }
-    // };
-
-    // addGoogleTranslateScript();
-  </script>
-  <script src="../javascripts/script.js"></script>
-</body>
-
+      // addGoogleTranslateScript();
+    </script>
+    <script src="../javascripts/script.js"></script>
+  </body>
 </html>

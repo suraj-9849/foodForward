@@ -1,165 +1,165 @@
 @font-face {
-  font-family: 'gilroy';
-  src: url('../gilroy.ttf') format('truetype');
+  font-family: "gilroy";
+  src: url("../gilroy.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 body {
-    font-family: 'gilroy', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f7f9fc;
+  font-family: "gilroy", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f9fc;
 }
 
 .timeline {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
 .timeline-item {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 80%;
-    margin-bottom: 50px;
-    position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 80%;
+  margin-bottom: 50px;
+  position: relative;
 }
 
 .timeline-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px;
-    height: 100%;
-    background-color: #4CAF50;
-    transform: translateX(-50%);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background-color: #4caf50;
+  transform: translateX(-50%);
 }
 
 .timeline-img {
-    width: 200px;
-    height: 150px;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-    width: 265px;
-    height: 187px;
-    position: relative;
-    top:2px;
+  width: 200px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  width: 265px;
+  height: 187px;
+  position: relative;
+  top: 2px;
 }
 
 .timeline-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .timeline-content {
-    margin-left: 40px;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+  margin-left: 40px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
 }
 
 .timeline-content span {
-    display: block;
-    font-size: 16px;
-    font-weight: bold;
-    color: #4CAF50;
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  color: #4caf50;
 }
 
 .timeline-content h3 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333333;
-    margin-top: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333333;
+  margin-top: 10px;
 }
 
 .timeline-content p {
-    font-size: 16px;
-    color: #666666;
-    margin-top: 10px;
-    line-height: 1.6;
+  font-size: 16px;
+  color: #666666;
+  margin-top: 10px;
+  line-height: 1.6;
 }
 
 .timeline-item:nth-child(even) {
-    flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
 .timeline-item:nth-child(even) .timeline-content {
-    margin-left: 0;
-    margin-right: 40px;
+  margin-left: 0;
+  margin-right: 40px;
 }
 
 .timeline-item:nth-child(even)::before {
-    left: auto;
-    right: 50%;
-    transform: translateX(50%);
+  left: auto;
+  right: 50%;
+  transform: translateX(50%);
 }
 
 #nav {
-    display: flex;
-    background-color: #ffffff;
-    height: 7vh;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2vh 3vw;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  background-color: #ffffff;
+  height: 7vh;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vh 3vw;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-#navpart-2{
-    display: flex;
-    align-items: center;
-    gap: 3vw;
+#navpart-2 {
+  display: flex;
+  align-items: center;
+  gap: 3vw;
 }
 
 #nav h1 {
-    font-size: 5vh;
-    cursor: pointer;
-    color: #333;
-    transition: color 0.3s;
+  font-size: 5vh;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s;
 }
 
 #navpart-2 h1 {
-    font-size: 3vh;
-    cursor: pointer;
-    color: #333;
-    transition: color 0.3s;
+  font-size: 3vh;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s;
 }
 
 #nav h1:hover {
-    color: #4DB748;
+  color: #4db748;
 }
 #navpart-3 {
-    display: flex;
-    align-items: center;
-    gap: 2vw;
-  }
-  
-  #navpart-3 img{
-    height: 4vh;
-    width: 2vw;
-    object-fit: cover;
-    object-position: center;
-  }
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+}
+
+#navpart-3 img {
+  height: 4vh;
+  width: 2vw;
+  object-fit: cover;
+  object-position: center;
+}
 #donate {
-    background-color: #4DB748;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    padding: 1vh 3vw;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+  background-color: #4db748;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 1vh 3vw;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
 #donate:hover {
-    background-color: #45a641;
+  background-color: #45a641;
 }

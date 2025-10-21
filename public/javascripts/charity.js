@@ -25,11 +25,11 @@
 //     }
 // });
 
-var tl = gsap.timeline()
+var tl = gsap.timeline();
 
 tl.from("#nav, #navpart-2 h1, #navpart-3", {
-    y: -100,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.2
+  y: -100,
+  opacity: 0,
+  duration: 1,
+  stagger: 0.2,
 });

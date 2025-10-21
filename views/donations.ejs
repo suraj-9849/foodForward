@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Donations - FoodForward</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @font-face {
+      font-family: "Gilroy";
+      src: url("../gilroy.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    * {
+      font-family: "Gilroy", sans-serif;
+    }
+
+    body {
+      background-color: #f9fafb;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .donation-card {
+      animation: slideIn 0.4s ease-out;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen">
+  <!-- Navigation Bar -->
+  <nav class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="/" class="flex items-center space-x-2">
+          <img src="../images/logo.png" alt="FoodForward Logo" class="h-10" />
+        </a>
+        <div class="flex items-center space-x-4">
+          <% if (loggedIn) { %>
+            <span class="text-gray-700">
+              <%= userEmail.split('@')[0] %>
+            </span>
+            <a href="/logout" class="text-red-600 hover:text-red-700 font-medium">Logout</a>
+            <% } else { %>
+              <a href="/partner" class="text-green-600 hover:text-green-700 font-medium">Login</a>
+              <% } %>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-8">
+      <h1 class="text-4xl font-bold text-gray-900 mb-2">My Donations</h1>
+      <p class="text-gray-600">View your donation history and impact</p>
+    </div>
+
+    <% if (donations && donations.length > 0) { %>
+      <!-- Summary Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <!-- Total Donations -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-600 text-sm font-medium">Total Donations</p>
+              <p class="text-3xl font-bold text-gray-900 mt-1">
+                <%= donations.length %>
+              </p>
+            </div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Total Amount -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-600 text-sm font-medium">Total Amount</p>
+              <p class="text-3xl font-bold text-green-600 mt-1">
+                $<%= donations.filter(d => d.donationType === 'monetary').reduce((sum, d) => sum + (d.amount || 0), 0).toFixed(2) %>
+              </p>
+            </div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Completed Donations -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-600 text-sm font-medium">Completed</p>
+              <p class="text-3xl font-bold text-gray-900 mt-1">
+                <%= donations.filter(d => d.status === 'completed').length %>
+              </p>
+            </div>
+            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Donations List -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="px-6 py-4 border-b border-gray-200">
+          <h2 class="text-xl font-semibold text-gray-900">Donation History</h2>
+        </div>
+        <div class="divide-y divide-gray-200">
+          <% donations.forEach((donation, index) => { %>
+            <div class="donation-card p-6 hover:bg-gray-50 transition duration-200"
+              style="animation-delay: <%= (index * 0.05) + 's' %>;">
+
+              <!-- Donation Type Badge -->
+              <div class="mb-3">
+                <% if (donation.donationType === 'monetary') { %>
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                    </svg>
+                    Money Donation
+                  </span>
+                <% } else { %>
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                    </svg>
+                    Food Donation
+                  </span>
+                <% } %>
+              </div>
+
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                <div class="flex-1">
+                  <div class="flex items-start justify-between">
+                    <div>
+                      <% if (donation.donationType === 'food' && donation.restaurantName) { %>
+                        <h3 class="text-lg font-semibold text-gray-900">
+                          <%= donation.restaurantName %>
+                        </h3>
+                        <p class="text-sm text-gray-600 mt-1">
+                          <span class="font-medium">To:</span> <%= donation.ngoName %>
+                        </p>
+                        <% if (donation.foodType || donation.quantity) { %>
+                          <p class="text-sm text-gray-600 mt-1">
+                            <% if (donation.foodType) { %><span class="font-medium">Type:</span> <%= donation.foodType %><% } %>
+                            <% if (donation.quantity) { %> • <span class="font-medium">Qty:</span> <%= donation.quantity %><% } %>
+                          </p>
+                        <% } %>
+                      <% } else { %>
+                        <h3 class="text-lg font-semibold text-gray-900">
+                          <%= donation.ngoName %>
+                        </h3>
+                      <% } %>
+
+                      <% if (donation.ngoLocation) { %>
+                        <p class="text-sm text-gray-600 mt-1">
+                          <svg class="inline w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                          <%= donation.ngoLocation %>
+                        </p>
+                      <% } %>
+
+                      <p class="text-sm text-gray-500 mt-1">
+                        <%= new Date(donation.createdAt).toLocaleDateString('en-US', { year: 'numeric' ,
+                          month: 'long' , day: 'numeric' , hour: '2-digit' , minute: '2-digit' }) %>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 md:mt-0 md:ml-6 flex items-center space-x-4">
+                  <div class="text-right">
+                    <% if (donation.donationType === 'monetary') { %>
+                      <p class="text-2xl font-bold text-green-600">$<%= donation.amount.toFixed(2) %></p>
+                    <% } else { %>
+                      <p class="text-2xl font-bold text-orange-600">Food</p>
+                    <% } %>
+
+                    <% if (donation.status === 'completed') { %>
+                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 mt-1">
+                        <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd" />
+                        </svg>
+                        Completed
+                      </span>
+                    <% } else { %>
+                      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 mt-1">
+                        <svg class="w-3 h-3 mr-1 animate-spin" fill="none" viewBox="0 0 24 24">
+                          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                          <path class="opacity-75" fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                          </path>
+                        </svg>
+                        Pending
+                      </span>
+                    <% } %>
+                  </div>
+                </div>
+              </div>
+
+              <% if (donation.ngoDescription) { %>
+                <p class="text-sm text-gray-600 mt-3 line-clamp-2">
+                  <%= donation.ngoDescription %>
+                </p>
+              <% } %>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+
+      <% } else { %>
+        <!-- Empty State -->
+        <div class="bg-white rounded-lg shadow-md p-12 text-center">
+          <div class="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">No Donations Yet</h3>
+          <p class="text-gray-600 mb-6">You haven't made any donations yet. Start making a difference today!</p>
+          <a href="/Charity"
+            class="inline-block px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300 font-semibold">
+            Make Your First Donation
+          </a>
+        </div>
+        <% } %>
+
+          <!-- Back to Home Button -->
+          <div class="mt-8 text-center">
+            <a href="/" class="text-green-600 hover:text-green-700 font-medium">
+              ← Back to Home
+            </a>
+          </div>
+  </div>
+</body>
+
+</html>

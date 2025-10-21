@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="../stylesheets/ngo.css" />
     <style>
       @font-face {
-        font-family: 'Gilroy';
-        src: url('../gilroy.ttf') format('truetype');
+        font-family: "Gilroy";
+        src: url("../gilroy.ttf") format("truetype");
         font-weight: normal;
         font-style: normal;
       }
 
       * {
-        font-family: 'Gilroy', sans-serif;
+        font-family: "Gilroy", sans-serif;
       }
 
       body {
@@ -124,11 +124,11 @@
   <body class="poppins">
     <div id="container">
       <h1>The NGO's Present near You!</h1>
-      
+
       <div class="filter-section">
         <label for="searchInput">Search NGO:</label>
-        <input type="text" id="searchInput" placeholder="Type NGO name...">
-        
+        <input type="text" id="searchInput" placeholder="Type NGO name..." />
+
         <label for="location">Filter by Location:</label>
         <select id="location">
           <option value="None">All Locations</option>
@@ -158,7 +158,7 @@
           <option value="Suchitra">Suchitra</option>
         </select>
       </div>
-      
+
       <div class="people" id="people"></div>
     </div>
 
@@ -322,7 +322,8 @@
       // Display all NGOs initially
       function displayNGOs(ngoList) {
         if (ngoList.length === 0) {
-          document.querySelector("#people").innerHTML = '<div class="no-results">No NGOs found matching your criteria.</div>';
+          document.querySelector("#people").innerHTML =
+            '<div class="no-results">No NGOs found matching your criteria.</div>';
           return;
         }
 
@@ -352,7 +353,8 @@
 
         let filtered = data.filter((e) => {
           const matchesSearch = e.name.toLowerCase().includes(searchTerm);
-          const matchesLocation = locationTerm === "none" || e.location.toLowerCase().startsWith(locationTerm);
+          const matchesLocation =
+            locationTerm === "none" || e.location.toLowerCase().startsWith(locationTerm);
           return matchesSearch && matchesLocation;
         });
 

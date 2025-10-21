@@ -1,122 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thank You</title>
     <style>
-        @font-face {
-          font-family: 'Gilroy';
-          src: url('../gilroy.ttf') format('truetype');
-          font-weight: normal;
-          font-style: normal;
-        }
-        
-        body {
-            font-family: "Gilroy", sans-serif;
-            background-color: #f3f4f6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
+      @font-face {
+        font-family: "Gilroy";
+        src: url("../gilroy.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
 
+      body {
+        font-family: "Gilroy", sans-serif;
+        background-color: #f3f4f6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+
+      .container {
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        padding: 60px;
+        width: 80%;
+        max-width: 800px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-size: 3em;
+        margin-bottom: 30px;
+        color: #4caf50;
+        position: relative;
+        z-index: 1;
+      }
+
+      p {
+        font-size: 1.4em;
+        line-height: 1.8;
+        margin-bottom: 30px;
+        position: relative;
+        z-index: 1;
+      }
+
+      span {
+        font-weight: bold;
+        color: #ff5722;
+        font-size: 1.2em;
+      }
+
+      a {
+        text-decoration: none;
+        background-color: #4caf50;
+        color: #fff;
+        padding: 15px 30px;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+        font-size: 1.2em;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        margin-top: 20px;
+        display: block;
+      }
+
+      a:hover {
+        background-color: #45a049;
+      }
+
+      .bg-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      @media (max-width: 768px) {
         .container {
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            padding: 60px;
-            width: 80%;
-            max-width: 800px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+          padding: 40px;
         }
 
         h1 {
-            font-size: 3em;
-            margin-bottom: 30px;
-            color: #4CAF50;
-            position: relative;
-            z-index: 1;
+          font-size: 2.5em;
         }
 
         p {
-            font-size: 1.4em;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 1;
+          font-size: 1.2em;
         }
-
-        span {
-            font-weight: bold;
-            color: #ff5722;
-            font-size: 1.2em;
-        }
-
-        a {
-            text-decoration: none;
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 15px 30px;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
-            font-size: 1.2em;
-            display: inline-block;
-            position: relative;
-            z-index: 1;
-            margin-top: 20px;
-            display: block;
-        }
-
-        a:hover {
-            background-color: #45a049;
-        }
-
-        .bg-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-   
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 40px;
-            }
-
-            h1 {
-                font-size: 2.5em;
-            }
-
-            p {
-                font-size: 1.2em;
-            }
-        }
+      }
     </style>
     <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-</style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+    </style>
+  </head>
 
-</head>
-
-<body class="poppins" >
+  <body class="poppins">
     <div class="container">
-        <div class="bg-image"></div>
-        <h1>Thank You!</h1>
-        <p>Your generous donation of food will make a significant difference in the lives of those in need. We are incredibly grateful for your kindness and compassion.</p>
-        <p>The food you've contributed will be distributed directly to those facing hunger and will help ensure they have a meal on their table.</p>
-        <p><span><%=name%></span> from <%=restaurant%> will come to collect the food from your provided location. Your support is invaluable to us and the community.</p>
-        <a target="_blank" href="https://mail.google.com/mail/?view=cm&to=<%= name.trim().toLowerCase().replace(/\s/g, '') %>@gmail.com&su=Donation%20Details&body=Dear%20<%=name%>,%0D%0A%0D%0AWe%20are%20grateful%20for%20your%20generous%20donation%20of%20food.%20Your%20kindness%20will%20bring%20hope%20and%20comfort%20to%20many.%0D%0A%0D%0AThe%20food%20you%20have%20contributed%20will%20be%20carefully%20collected%20and%20distributed%20to%20those%20in%20need.%20Your%20support%20ensures%20that%20they%20will%20have%20a%20nutritious%20meal%20on%20their%20table.%0D%0A%0D%0A<%=name%>%20will%20come%20to%20collect%20the%20food%20from%20your%20provided%20location.%20Please%20have%20the%20food%20ready%20for%20collection.%0D%0A%0D%0AThank%20you%20again%20for%20your%20kind%20support.%0D%0A%0D%0AKind%20Regards,%0D%0A<%=restaurant%>">Click Here to Send the Email to <%=name%></a>
-        <a href="/">Back to Home</a>
+      <div class="bg-image"></div>
+      <h1>Thank You!</h1>
+      <p>
+        Your generous donation of food will make a significant difference in the lives of those in
+        need. We are incredibly grateful for your kindness and compassion.
+      </p>
+      <p>
+        The food you've contributed will be distributed directly to those facing hunger and will
+        help ensure they have a meal on their table.
+      </p>
+      <p>
+        <span><%=name%></span> from <%=restaurant%> will come to collect the food from your provided
+        location. Your support is invaluable to us and the community.
+      </p>
+      <a
+        target="_blank"
+        href="https://mail.google.com/mail/?view=cm&to=<%= name.trim().toLowerCase().replace(/\s/g, '') %>@gmail.com&su=Donation%20Details&body=Dear%20<%=name%>,%0D%0A%0D%0AWe%20are%20grateful%20for%20your%20generous%20donation%20of%20food.%20Your%20kindness%20will%20bring%20hope%20and%20comfort%20to%20many.%0D%0A%0D%0AThe%20food%20you%20have%20contributed%20will%20be%20carefully%20collected%20and%20distributed%20to%20those%20in%20need.%20Your%20support%20ensures%20that%20they%20will%20have%20a%20nutritious%20meal%20on%20their%20table.%0D%0A%0D%0A<%=name%>%20will%20come%20to%20collect%20the%20food%20from%20your%20provided%20location.%20Please%20have%20the%20food%20ready%20for%20collection.%0D%0A%0D%0AThank%20you%20again%20for%20your%20kind%20support.%0D%0A%0D%0AKind%20Regards,%0D%0A<%=restaurant%>"
+        onclick="setTimeout(function(){ window.location.href = '/my-donations'; }, 1000);"
+        >Click Here to Send the Email to <%=name%></a
+      >
+      <a href="/my-donations" style="background-color: #2196F3; margin-top: 10px;">View My Donations</a>
+      <a href="/" style="background-color: #757575; margin-top: 10px;">Back to Home</a>
     </div>
-</body>
-
+  </body>
 </html>

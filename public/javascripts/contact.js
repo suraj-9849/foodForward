@@ -1,7 +1,7 @@
-const button = document.querySelector("#submit")
-button.addEventListener("click", function(){
-    button.textContent = "Submitted"
-})
+const button = document.querySelector("#submit");
+button.addEventListener("click", function () {
+  button.textContent = "Submitted";
+});
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,7 +13,7 @@ const locoScroll = new LocomotiveScroll({
   tablet: { smooth: true },
 
   // for mobile
-  smartphone: { smooth: true }
+  smartphone: { smooth: true },
 });
 locoScroll.on("scroll", ScrollTrigger.update);
 
@@ -28,9 +28,9 @@ ScrollTrigger.scrollerProxy("#main", {
       top: 0,
       left: 0,
       width: window.innerWidth,
-      height: window.innerHeight
+      height: window.innerHeight,
     };
-  }
+  },
 
   // follwoing line is not required to work pinning on touch screen
 
@@ -39,32 +39,32 @@ ScrollTrigger.scrollerProxy("#main", {
     : "fixed"*/
 });
 
-var tl = gsap.timeline()
+var tl = gsap.timeline();
 
-tl.from("#nav ,#navpart-2 h1,#navpart-3",{
-    y:-100,
-    opacity:0,
-    duration:1,
-    stagger:0.2,
-})
+tl.from("#nav ,#navpart-2 h1,#navpart-3", {
+  y: -100,
+  opacity: 0,
+  duration: 1,
+  stagger: 0.2,
+});
 
-tl.from(".connect",{
-    x: -200,
-    scrub: 2,
-    opacity:0,
-    stagger:0.2
-})
+tl.from(".connect", {
+  x: -200,
+  scrub: 2,
+  opacity: 0,
+  stagger: 0.2,
+});
 
-tl.from(".contact-form",{
-    x: 200,
-    scrub: 2,
-    opacity:0,
-    stagger:0.2
-})
+tl.from(".contact-form", {
+  x: 200,
+  scrub: 2,
+  opacity: 0,
+  stagger: 0.2,
+});
 
-tl.from(".addresses .address",{
-    y: 200,
-    scrub: 2,
-    opacity:0,
-    stagger:0.2
-})
+tl.from(".addresses .address", {
+  y: 200,
+  scrub: 2,
+  opacity: 0,
+  stagger: 0.2,
+});

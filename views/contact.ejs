@@ -1,106 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us - FoodForward</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"
     />
-    <link rel="stylesheet" href="../stylesheets/contact.css">
-</head>
-<div id="main">
+    <link rel="stylesheet" href="../stylesheets/contact.css" />
+  </head>
 
-
-  <div id="nav">
-    <h1 onclick="redirectToHome()"><img style="height: 4vh; object-fit: cover; object-position: center; width: 13vw;margin-top: 2vh;" src="../images/logo.png" alt=""></h1>
-    <div id="navpart-2">
-      <h1 id="home" onclick="redirectToHome()">Home</h1>
-      <h1 id="about" onclick="redirectToAbout()">About us</h1>
-      <h1 id="feeding" onclick="redirectToFeeding()"> Awards and Recognitions</h1>
-      <h1 id="Charity" onclick="redirectToCharity()">Charity</h1>
-      <h1 id="contact" onclick="redirectToContact()">Contact</h1>
-    </div>
-    <div id="navpart-3">
-      <button
-        id="donate"
-        style="padding: 1vh 3vw; text-align: center; width: fit-content"
-        onclick="redirectToDonate()"
-      >
-        <i class="ri-heart-fill"></i>Donate
-      </button>
-      <img src="../images/login.png" onclick="redirectToPartner()">
-      <!-- <h1 id="partner" onclick="redirectToPartner()"></h1> -->
-    </div>
-  </div>
-    <div class="container">
+  <body>
+    <div id="main">
+      <div id="nav">
+        <h1 onclick="redirectToHome()">
+          <img
+            style="
+              height: 4vh;
+              object-fit: cover;
+              object-position: center;
+              width: 13vw;
+              margin-top: 2vh;
+            "
+            src="../images/logo.png"
+            alt=""
+          />
+        </h1>
+        <div id="navpart-2">
+          <h1 id="home" onclick="redirectToHome()">Home</h1>
+          <h1 id="about" onclick="redirectToAbout()">About us</h1>
+          <h1 id="feeding" onclick="redirectToFeeding()">Awards and Recognitions</h1>
+          <h1 id="Charity" onclick="redirectToCharity()">Charity</h1>
+          <h1 id="contact" onclick="redirectToContact()">Contact</h1>
+        </div>
+        <div id="navpart-3">
+          <button
+            id="donate"
+            style="padding: 1vh 3vw; text-align: center; width: fit-content"
+            onclick="redirectToDonate()"
+          >
+            <i class="ri-heart-fill"></i>Donate
+          </button>
+          <% if (loggedIn) { %>
+          <img
+            src="../images/login.png"
+            onclick="redirectToLogout()"
+            style="cursor: pointer"
+            title="Logout"
+          />
+          <% } else { %>
+          <img
+            src="../images/login.png"
+            onclick="redirectToPartner()"
+            style="cursor: pointer"
+            title="Login"
+          />
+          <% } %>
+        </div>
+      </div>
+      <div class="container">
         <div class="connect">
-            <h2>CONNECT WITH <span>FoodForward</span></h2>
-            <p>Lets connect and make this world the better place.</p>
+          <h2>CONNECT WITH <span>FoodForward</span></h2>
+          <p>Lets connect and make this world the better place.</p>
         </div>
         <div class="contact-form">
-            <form action="#" method="POST">
-                <input type="text" name="name" placeholder="Your name" required>
-                <input type="email" name="email" placeholder="Email address" required>
-                <input type="text" name="subject" placeholder="Subject" required>
-                <input type="tel" name="phone" placeholder="Phone number" required>
-                <textarea name="message" placeholder="Write message" required></textarea>
-                <button type="submit" id="submit">Send a Message</button>
-            </form>
+          <form action="#" method="POST">
+            <input type="text" name="name" placeholder="Your name" required />
+            <input type="email" name="email" placeholder="Email address" required />
+            <input type="text" name="subject" placeholder="Subject" required />
+            <input type="tel" name="phone" placeholder="Phone number" required />
+            <textarea name="message" placeholder="Write message" required></textarea>
+            <button type="submit" id="submit">Send a Message</button>
+          </form>
         </div>
         <div class="addresses">
-            <div class="address">
-                <h3>CALL US</h3>
-                <p>1234567890</p>
-                <p>Between 9 a.m. to 6 p.m. from Monday to Saturday</p>
-            </div>
-            <div class="address">
-                <h3>OFFICE ADDRESS</h3>
-                <p>FoodForward</p>
-                <p>D-401, XYZ Towers,</p>
-                <p>Mechal, Near Kandlakoya,</p>
-                <p>Hyderabad - 500054, Telangana, India</p>
-            </div>
-            <div class="address">
-                <h3>KITCHEN ADDRESS</h3>
-                <p>FoodForward Kitchen,</p>
-                <p>ABC Compound, XYZ Street,</p>
-                <p>Hyderabad 500054</p>
-                <p>Contact number: +911234567890</p>
-            </div>
+          <div class="address">
+            <h3>CALL US</h3>
+            <p>1234567890</p>
+            <p>Between 9 a.m. to 6 p.m. from Monday to Saturday</p>
+          </div>
+          <div class="address">
+            <h3>OFFICE ADDRESS</h3>
+            <p>FoodForward</p>
+            <p>D-401, XYZ Towers,</p>
+            <p>Mechal, Near Kandlakoya,</p>
+            <p>Hyderabad - 500054, Telangana, India</p>
+          </div>
+          <div class="address">
+            <h3>KITCHEN ADDRESS</h3>
+            <p>FoodForward Kitchen,</p>
+            <p>ABC Compound, XYZ Street,</p>
+            <p>Hyderabad 500054</p>
+            <p>Contact number: +911234567890</p>
+          </div>
         </div>
-    </div></div>
+      </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
     <script>
-        var home = document.querySelector("#nav #navpart-2 #home");
-        var about = document.querySelector("#nav #navpart-2 #about");
-        function redirectToAbout() {
-          window.location.href = "/about";
-        }
-        function redirectToHome() {
-          window.location.href = "/";
-        }
-        function redirectToDonate() {
-          window.location.href = "/donate";
-        }
-        function redirectToContact() {
-          window.location.href = "/contact";
-        }
-        function redirectToFeeding() {
-          window.location.href = "/feeding";
-        }
-        function redirectToCharity() {
-          window.location.href = "/Charity";
-        }
-        function redirectToPartner() {
-          window.location.href = "/partner";
-        }
+      var home = document.querySelector("#nav #navpart-2 #home");
+      var about = document.querySelector("#nav #navpart-2 #about");
+      function redirectToAbout() {
+        window.location.href = "/about";
+      }
+      function redirectToHome() {
+        window.location.href = "/";
+      }
+      function redirectToDonate() {
+        window.location.href = "/donate";
+      }
+      function redirectToContact() {
+        window.location.href = "/contact";
+      }
+      function redirectToFeeding() {
+        window.location.href = "/feeding";
+      }
+      function redirectToCharity() {
+        window.location.href = "/Charity";
+      }
+      function redirectToPartner() {
+        window.location.href = "/partner";
+      }
+      function redirectToLogout() {
+        window.location.href = "/logout";
+      }
     </script>
     <script src="../javascripts/contact.js"></script>
-</body>
-
+  </body>
 </html>

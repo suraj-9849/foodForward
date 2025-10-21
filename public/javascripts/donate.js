@@ -1,4 +1,3 @@
-
 //     gsap.registerPlugin(ScrollTrigger);
 
 // const locoScroll = new LocomotiveScroll({
@@ -28,24 +27,24 @@
 //     };
 //   }
 // });
-document.addEventListener('DOMContentLoaded', () => {
-  const itemList = document.getElementById('item-list');
-  const addItemBtn = document.getElementById('add');
-  const removeItemBtn = document.getElementById('remove');
-  const itemInput = document.getElementById('item');
+document.addEventListener("DOMContentLoaded", () => {
+  const itemList = document.getElementById("item-list");
+  const addItemBtn = document.getElementById("add");
+  const removeItemBtn = document.getElementById("remove");
+  const itemInput = document.getElementById("item");
 
-  addItemBtn.addEventListener('click', () => {
-      if (itemInput.value.trim() !== '') {
-          const li = document.createElement('li');
-          li.textContent = itemInput.value.trim();
-          itemList.appendChild(li);
-          itemInput.value = '';
-      }
+  addItemBtn.addEventListener("click", () => {
+    if (itemInput.value.trim() !== "") {
+      const li = document.createElement("li");
+      li.textContent = itemInput.value.trim();
+      itemList.appendChild(li);
+      itemInput.value = "";
+    }
   });
 
-  removeItemBtn.addEventListener('click', () => {
-      if (itemList.children.length > 0) {
-          itemList.removeChild(itemList.lastElementChild);
-      }
+  removeItemBtn.addEventListener("click", () => {
+    if (itemList.children.length > 0) {
+      itemList.removeChild(itemList.lastElementChild);
+    }
   });
 });

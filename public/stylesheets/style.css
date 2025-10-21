@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Gilroy';
-  src: url('../gilroy.ttf') format('truetype');
+  font-family: "Gilroy";
+  src: url("../gilroy.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -9,10 +9,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Gilroy', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Gilroy", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
 }
@@ -55,7 +56,7 @@ html, body {
   gap: 2vw;
 }
 
-#navpart-3 img{
+#navpart-3 img {
   height: 4vh;
   width: 2vw;
   object-fit: cover;
@@ -75,7 +76,7 @@ footer {
   background-color: #333;
   color: #fff;
   padding: 40px 0;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 .footcontainer {
@@ -86,7 +87,9 @@ footer {
   padding: 0 20px;
 }
 
-.left, .middle, .right {
+.left,
+.middle,
+.right {
   flex: 1;
   padding: 0 20px;
 }
@@ -97,7 +100,6 @@ h2 {
   border-bottom: 2px solid #fff;
   padding-bottom: 10px;
 }
-
 
 form {
   display: flex;
@@ -181,7 +183,6 @@ form {
   color: white;
 }
 
-
 input[type="email"] {
   width: 100%;
   padding: 10px;
@@ -226,9 +227,8 @@ a:hover {
   text-decoration: underline;
 }
 
-
 #donate {
-  background-color: #4DB748;
+  background-color: #4db748;
   color: white;
   border: none;
   cursor: pointer;
@@ -271,7 +271,6 @@ a:hover {
   position: relative;
   top: -100px;
   color: #cde1e1;
-  
 }
 
 #hero #left h3 {
@@ -381,7 +380,7 @@ a:hover {
   height: 58px;
   border-radius: 50%;
   margin-right: 20px;
-  background-image: url('https://th.bing.com/th/id/OIP.YQvEhFCheNg2upbslsmKwgHaHa?w=193&h=193&c=7&r=0&o=5&dpr=1.3&pid=1.7');
+  background-image: url("https://th.bing.com/th/id/OIP.YQvEhFCheNg2upbslsmKwgHaHa?w=193&h=193&c=7&r=0&o=5&dpr=1.3&pid=1.7");
   background-size: cover;
 }
 
@@ -401,7 +400,6 @@ a:hover {
   color: #888;
   margin-top: 10px;
 }
-
 
 #part2half {
   height: 40vh;
@@ -505,7 +503,7 @@ footer {
   align-items: center;
   justify-content: center;
 }
-#goals{
+#goals {
   margin-top: 45px;
   height: 74%;
   width: 80%;
@@ -514,10 +512,10 @@ footer {
   padding: 36px;
   border-radius: 10px;
 }
-#info{
+#info {
   font-weight: bolder;
 }
-#donate_btn{
+#donate_btn {
   margin-top: 60px;
   padding: 31px;
   height: 114%;
@@ -525,12 +523,11 @@ footer {
   background-color: bisque;
   font-size: 23px;
   border-radius: 10px;
-  
 }
-#main_button{
-display: flex;
-justify-content: center;
-align-items: center;
+#main_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .container {
   margin-top: 160px;
@@ -573,19 +570,19 @@ align-items: center;
   background-position: center;
 }
 .zero-hunger {
-  background-image: url('https://globalgoalscms.co.uk/wp-content/uploads/2021/09/2.png');
+  background-image: url("https://globalgoalscms.co.uk/wp-content/uploads/2021/09/2.png");
 }
 .quality-education {
-  background-image: url('https://th.bing.com/th/id/OIP.z-QkCWWGz1ujTn2huuJZgwHaGL?rs=1&pid=ImgDetMain');
+  background-image: url("https://th.bing.com/th/id/OIP.z-QkCWWGz1ujTn2huuJZgwHaGL?rs=1&pid=ImgDetMain");
 }
 .no-poverty {
-  background-image: url('https://th.bing.com/th/id/OIP.ZZUiO1mLNj3DYLj7CB6WQwHaE9?rs=1&pid=ImgDetMain');
+  background-image: url("https://th.bing.com/th/id/OIP.ZZUiO1mLNj3DYLj7CB6WQwHaE9?rs=1&pid=ImgDetMain");
 }
 .good-health {
-  background-image: url('https://www.logolynx.com/images/logolynx/s_d4/d4931fbc228a479b502bf86ef790ddc1.jpeg');
+  background-image: url("https://www.logolynx.com/images/logolynx/s_d4/d4931fbc228a479b502bf86ef790ddc1.jpeg");
 }
 .gender-equality {
-  background-image: url('https://static.vecteezy.com/system/resources/previews/003/421/786/original/men-and-women-symbol-gender-equality-symbol-vector.jpg');
+  background-image: url("https://static.vecteezy.com/system/resources/previews/003/421/786/original/men-and-women-symbol-gender-equality-symbol-vector.jpg");
 }
 .label {
   font-size: 14px;

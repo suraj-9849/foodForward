@@ -1,37 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thank You for Your Donation</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @font-face {
-          font-family: 'Gilroy';
-          src: url('../gilroy.ttf') format('truetype');
-          font-weight: normal;
-          font-style: normal;
+      @font-face {
+        font-family: "Gilroy";
+        src: url("../gilroy.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      body {
+        font-family: "Gilroy", sans-serif;
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
         }
-        
-        body {
-            font-family: "Gilroy", sans-serif;
-            background-color: #f3f4f6;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
+
+      .animate-fadeIn {
+        animation: fadeIn 0.6s ease-out;
+      }
+
+      @keyframes checkmark {
+        0% {
+          stroke-dashoffset: 100;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      .checkmark {
+        stroke-dasharray: 100;
+        animation: checkmark 0.6s ease-out 0.3s forwards;
+      }
     </style>
-</head>
-<body class="flex items-center poppins justify-center min-h-screen bg-gray-100">
-  <div class="text-center p-8 bg-white rounded-lg shadow-lg max-w-md animate-fadeIn">
-    <h1 class="text-3xl font-bold text-green-600 mb-4">Thank You for Your Generous Donation!</h1>
-    <p class="text-lg text-gray-700 mb-6">
-      Your contribution will make a significant impact in feeding those in need and helping us create a better world. 
-      Together, we are making a difference!
-    </p>
-    <div class="flex justify-center mb-6">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD+klEQVR4nO2aS49URRTHa3AhuDBx4U5XQoaFD0SiJAx96s6G1ozu6pweWbDiYeJ3EMKG8Jg4kUf8CLJwSUi0+5xGGCCiZLYqMMTHQpgxIUJ4zKRN9TQZw3TPdNWtW9UT7j85mcX0vbd+/zq3qm7VUapUqVKlSpUqVMDjm4HNAS10BhjrwHhDM85pxsedmAPB3+z/tOBp3cT9Wd0Mq7UsYLNFC06A0B9aqOUX+Dswnsjq+I5aE2qpoYrgx1rosj90j2CaAqYx+ww1iBptmve14I/BwZ8JYLoKXNumBkXbp8wGLfgVMC4UDb9kAi4A4yTwnvVJ4bO6GQbG6VjgXeJ6RcY3JYHXjdoHIHQ3IXxnbMA5YDMSFb4i9KFmepAcfmlcuA9cq0aBB8btIPhvaujlmUAPCs+ErG6GtdA/yWF7Z8JsYWMC8J71mvHn1JCrm4DTdmYqwAA8mRrOwYQvA8PXtoHQ/BoyYMEuzMLQt9RQjBVeAXE5yLI5k9onAwDjFXa6zm2ALuLDJlIA46Vc8BWpvZsaohNPgOkzLXTY9drRC7W3c/Q+TiSHZ7qXCX70tE3AeMjtHnjM2wDItZkRIIUFZ4DxzWXtcjABmG77wfP45sS9fx1492vd20YHnYxks9HDAHMgXdrjt2PXxl4KAW8jE9rnbIAWOpMk7RknVeuLdaHgO/c86W4AU8P9QfRNe0+Q8S/na4XmgenzXu3xhe/Ed+4GCN5yS1v6e+SCedVea/9qobMO195badGSE95mwA1nA4Bp1rEHzbP36CcbgPHP0SZuLQp+MfCOjwGPHF0+0u0+Iz98+gowft3jmumdTXq9WPh25zws3AC9ggndsgGEzlev7H65aHh/A8Rvw9M2vNc9n44NdqQ3Z80LMeC9XwHNdNPb8RVMWE3h4T0HQe0xDfb7OsSEzzENUu6FkIsJBcJ7LoSauD/Mw1d/HYqEX2yD2eu7Bd4K1ANHUsF7fwxZ2fP5cI1YnglR4AVnlK+A8UTYnljKhBjwi4FHc1Z5UOB0pIPx4O3GqHlL5ZFmmorV2OBmC13MBW9ly1JSg/hnW4gT45YasmUpz92W+P+VNcx7a+poTGjebumrkALGydRg/QdOqNCqnqu+CEw/PbfH41a2+MB1pyhy6t/N6vSGKr44CgeyREY3cIeKIeBa1RYmDU7a033dwF0qQWXondTw7aLrWD3fbUxIWTcEQtcKf+f7KZ6yNTkx1wmLz8IJOzOpQdFoE7fGKKawK7zgi5yQsmf5tpEF9PrFaNWgIWQrM4DpuD2f94fGGVvgkPuTNrUq7QWU2QtMp0Dwey30q11Q2cOXTsxqxl/s7m37N+3fem5jlSpVqlSpUqpf/QdxTWTd1nMWMAAAAABJRU5ErkJggg==" alt="Thank You" class="w-24 h-24 rounded-full">
+  </head>
+  <body class="flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-8 md:p-12 animate-fadeIn">
+      <!-- Success Icon -->
+      <div class="flex justify-center mb-6">
+        <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center">
+          <svg class="w-16 h-16" viewBox="0 0 52 52">
+            <circle class="checkmark" cx="26" cy="26" r="22" fill="none" stroke="#10b981" stroke-width="4"/>
+            <path class="checkmark" fill="none" stroke="#10b981" stroke-width="4" d="M14 27l8 8 16-16"/>
+          </svg>
+        </div>
+      </div>
+
+      <h1 class="text-4xl font-bold text-green-600 mb-4 text-center">
+        Donation Successful!
+      </h1>
+
+      <p class="text-lg text-gray-600 mb-8 text-center">
+        Thank you for your generous contribution to FoodForward!
+      </p>
+
+      <% if (donation) { %>
+      <!-- Donation Details -->
+      <div class="bg-gray-50 rounded-xl p-6 mb-8">
+        <h2 class="text-xl font-semibold text-gray-900 mb-4">Donation Details</h2>
+
+        <div class="space-y-3">
+          <div class="flex justify-between items-center py-2 border-b border-gray-200">
+            <span class="text-gray-600">Amount</span>
+            <span class="text-2xl font-bold text-green-600">$<%= donation.amount.toFixed(2) %></span>
+          </div>
+
+          <div class="flex justify-between items-center py-2 border-b border-gray-200">
+            <span class="text-gray-600">NGO</span>
+            <span class="font-semibold text-gray-900"><%= donation.ngoName %></span>
+          </div>
+
+          <% if (donation.ngoLocation) { %>
+          <div class="flex justify-between items-center py-2 border-b border-gray-200">
+            <span class="text-gray-600">Location</span>
+            <span class="text-gray-900"><%= donation.ngoLocation %></span>
+          </div>
+          <% } %>
+
+          <div class="flex justify-between items-center py-2 border-b border-gray-200">
+            <span class="text-gray-600">Date</span>
+            <span class="text-gray-900"><%= new Date(donation.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></span>
+          </div>
+
+          <div class="flex justify-between items-center py-2">
+            <span class="text-gray-600">Donor</span>
+            <span class="text-gray-900"><%= donation.donorName %></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Impact Message -->
+      <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-8">
+        <p class="text-green-800">
+          <strong>Your impact:</strong> This donation will help provide meals to those in need through
+          <%= donation.ngoName %>. Together, we're making a real difference in fighting hunger!
+        </p>
+      </div>
+      <% } else { %>
+      <!-- Generic Success Message -->
+      <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-8">
+        <p class="text-green-800 text-center">
+          Your contribution will make a significant impact in feeding those in need and helping us
+          create a better world. Together, we are making a difference!
+        </p>
+      </div>
+      <% } %>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/my-donations"
+          class="inline-block px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-300 text-center font-semibold"
+        >
+          View My Donations
+        </a>
+        <a
+          href="/"
+          class="inline-block px-6 py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition duration-300 text-center font-semibold"
+        >
+          Return to Home
+        </a>
+      </div>
+
+      <!-- Email Receipt Note -->
+      <p class="text-sm text-gray-500 text-center mt-6">
+        A receipt has been sent to your email address.
+      </p>
     </div>
-    <a href="/" class="inline-block px-6 py-3 bg-green-600 text-white rounded hover:bg-green-700 transition duration-300">
-      Return to Home
-    </a>
-  </div>
-</body>
+  </body>
 </html>

@@ -5,19 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"
-  />
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"
+    />
     <link rel="stylesheet" href="../stylesheets/awards.css" />
   </head>
-  <body class="poppins"> >
+  <body class="poppins">
+    >
     <div id="main">
       <div id="nav">
-        <h1 onclick="redirectToHome()"><img style="height: 4vh; object-fit: cover; object-position: center; width: 13vw;margin-top: 2vh;" src="../images/logo.png" alt=""></h1>
+        <h1 onclick="redirectToHome()">
+          <img
+            style="
+              height: 4vh;
+              object-fit: cover;
+              object-position: center;
+              width: 13vw;
+              margin-top: 2vh;
+            "
+            src="../images/logo.png"
+            alt=""
+          />
+        </h1>
         <div id="navpart-2">
           <h1 id="home" onclick="redirectToHome()">Home</h1>
           <h1 id="about" onclick="redirectToAbout()">About us</h1>
-          <h1 id="feeding" onclick="redirectToFeeding()"> Awards and Recognitions</h1>
+          <h1 id="feeding" onclick="redirectToFeeding()">Awards and Recognitions</h1>
           <h1 id="Charity" onclick="redirectToCharity()">Charity</h1>
           <h1 id="contact" onclick="redirectToContact()">Contact</h1>
         </div>
@@ -29,11 +42,24 @@
           >
             <i class="ri-heart-fill"></i>Donate
           </button>
-          <img src="../images/login.png" onclick="redirectToPartner()">
-          <!-- <h1 id="partner" onclick="redirectToPartner()"></h1> -->
+          <% if (loggedIn) { %>
+          <img
+            src="../images/login.png"
+            onclick="redirectToLogout()"
+            style="cursor: pointer"
+            title="Logout"
+          />
+          <% } else { %>
+          <img
+            src="../images/login.png"
+            onclick="redirectToPartner()"
+            style="cursor: pointer"
+            title="Login"
+          />
+          <% } %>
         </div>
       </div>
-      <div id="head" style="margin-top: 3vw;">Awards and Recognitoins</div>
+      <div id="head" style="margin-top: 3vw">Awards and Recognitoins</div>
       <div id="page1">
         <div id="Acards">
           <div class="card">
@@ -44,9 +70,8 @@
             <div class="card__content">
               <p class="card__title">sustainability award 2019</p>
               <p class="card__description">
-                Given to recognize our commitment to reducing food waste and
-                addressing hunger by connecting surplus food from restaurants to
-                people in need..
+                Given to recognize our commitment to reducing food waste and addressing hunger by
+                connecting surplus food from restaurants to people in need..
               </p>
             </div>
           </div>
@@ -59,8 +84,8 @@
             <div class="card__content">
               <p class="card__title">Community impact award 2019</p>
               <p class="card__description">
-                Community Impact Award: Highlighting our positive impact on the
-                community by providing meals to those facing food insecurity..
+                Community Impact Award: Highlighting our positive impact on the community by
+                providing meals to those facing food insecurity..
               </p>
             </div>
           </div>
@@ -73,9 +98,8 @@
             <div class="card__content">
               <p class="card__title">Social Entrepreneurship Award 2020</p>
               <p class="card__description">
-                Acknowledging our entrepreneurial efforts in creating a
-                sustainable business model that addresses social issues like
-                hunger and food waste.
+                Acknowledging our entrepreneurial efforts in creating a sustainable business model
+                that addresses social issues like hunger and food waste.
               </p>
             </div>
           </div>
@@ -88,8 +112,8 @@
             <div class="card__content">
               <p class="card__title">Tech for Good Award 2021</p>
               <p class="card__description">
-                Highlighting our use of technology for social good, specifically
-                in the realm of food rescue and redistribution.
+                Highlighting our use of technology for social good, specifically in the realm of
+                food rescue and redistribution.
               </p>
             </div>
           </div>
@@ -102,8 +126,8 @@
             <div class="card__content">
               <p class="card__title">Innovation in Food Rescue 2020</p>
               <p class="card__description">
-                Recognizing our innovative approach to utilizing technology and
-                partnerships to efficiently redistribute surplus food..
+                Recognizing our innovative approach to utilizing technology and partnerships to
+                efficiently redistribute surplus food..
               </p>
             </div>
           </div>
@@ -116,9 +140,9 @@
             <div class="card__content">
               <p class="card__title">Shark tank funding S2 2024</p>
               <p class="card__description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco.
               </p>
             </div>
           </div>
@@ -129,18 +153,12 @@
           <div class="left">
             <h2>Subscribe to Our Emails</h2>
             <p>
-              Stay up to date with the latest at Feed the Need Missions,
-              delivered right to your inbox. Sign up below to subscribe to our
-              newsletter and email updates.
+              Stay up to date with the latest at Feed the Need Missions, delivered right to your
+              inbox. Sign up below to subscribe to our newsletter and email updates.
             </p>
             <form action="#" method="POST">
               <div class="input-group">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email Address*"
-                  required
-                />
+                <input type="email" name="email" placeholder="Email Address*" required />
                 <button type="submit">Subscribe</button>
               </div>
             </form>
@@ -196,63 +214,63 @@
       function redirectToPartner() {
         window.location.href = "/partner";
       }
-
+      function redirectToLogout() {
+        window.location.href = "/logout";
+      }
 
       gsap.registerPlugin(ScrollTrigger);
 
-const locoScroll = new LocomotiveScroll({
-  el: document.querySelector("#main"),
-  smooth: true,
+      const locoScroll = new LocomotiveScroll({
+        el: document.querySelector("#main"),
+        smooth: true,
 
-  // for tablet smooth
-  tablet: { smooth: true },
+        // for tablet smooth
+        tablet: { smooth: true },
 
-  // for mobile
-  smartphone: { smooth: true }
-});
-locoScroll.on("scroll", ScrollTrigger.update);
+        // for mobile
+        smartphone: { smooth: true },
+      });
+      locoScroll.on("scroll", ScrollTrigger.update);
 
-ScrollTrigger.scrollerProxy("#main", {
-  scrollTop(value) {
-    return arguments.length
-      ? locoScroll.scrollTo(value, 0, 0)
-      : locoScroll.scroll.instance.scroll.y;
-  },
-  getBoundingClientRect() {
-    return {
-      top: 0,
-      left: 0,
-      width: window.innerWidth,
-      height: window.innerHeight
-    };
-  }
-});
-var tl = gsap.timeline()
+      ScrollTrigger.scrollerProxy("#main", {
+        scrollTop(value) {
+          return arguments.length
+            ? locoScroll.scrollTo(value, 0, 0)
+            : locoScroll.scroll.instance.scroll.y;
+        },
+        getBoundingClientRect() {
+          return {
+            top: 0,
+            left: 0,
+            width: window.innerWidth,
+            height: window.innerHeight,
+          };
+        },
+      });
+      var tl = gsap.timeline();
 
-tl.from("#nav ,#navpart-2 h1,#navpart-3",{
-    y:-100,
-    opacity:0,
-    duration:1,
-    stagger:0.2,
-})
+      tl.from("#nav ,#navpart-2 h1,#navpart-3", {
+        y: -100,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+      });
 
-tl.from("#head",{
-    scale:0,
-    opacity:0,
-    duration:1,
-    stagger:0.2,
-})
+      tl.from("#head", {
+        scale: 0,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+      });
 
-
-  tl.from("#Acards", {
-    opacity: 0,
-    scale:0,
-    // y: 50,
-    stagger: 0.3,
-    // scale: 0.8,
-    ease: "power3.out",
-  });
-
+      tl.from("#Acards", {
+        opacity: 0,
+        scale: 0,
+        // y: 50,
+        stagger: 0.3,
+        // scale: 0.8,
+        ease: "power3.out",
+      });
     </script>
     <!-- <script src="init.js"></script> -->
   </body>

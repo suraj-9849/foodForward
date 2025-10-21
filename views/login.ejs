@@ -2,68 +2,353 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoodForward - Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @font-face {
+      font-family: 'Gilroy';
+      src: url('../gilroy.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    * {
+      font-family: 'Gilroy', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .gradient-bg {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    }
+
+    .input-field {
+      transition: all 0.3s ease;
+    }
+
+    .input-field:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      transition: all 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4);
+    }
+
+    .tab-btn {
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      border-radius: 2px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.4s ease;
+    }
+  </style>
 </head>
-<link rel="stylesheet" href="../stylesheets/login.css">
 
-<body class="poppins" >
+<body>
+  <div class="flex h-screen">
+    <!-- Left Side - Info Section -->
+    <div class="hidden lg:flex lg:w-1/2 gradient-bg items-center justify-center p-12">
+      <div class="text-white max-w-md">
+        <img src="../images/logo.png" alt="FoodForward Logo" class="h-20 mb-8 filter brightness-0 invert" />
+        <h1 class="text-5xl font-bold mb-6">FoodForward</h1>
+        <p class="text-xl mb-8 opacity-90">
+          Connecting surplus restaurant food with NGOs to fight hunger and reduce waste.
+        </p>
 
-  <div id="main">
-    <div class="modal">
-      <form class="form" action="">
-        <div class="banner"></div>
-        <label class="title">FoodForward <br> <span id="head"> login</span></label>
-        <p class="description">Join "FoodForward" today! Together, we can make a difference. </p>
-        <div class="tab-container">
-          <div class="tab tab--1" id="btn1">Login as an NGO</div>
-          <div class="tab tab--2" id="btn2">Login as donor</div>
-          
-        </div>
-        <div id="cred">
-          <input type="text" name="" id="inp" class="org" placeholder="Organisation name">
-          <input type="text" name="" id="inp" placeholder="Phone number ">
-          <input type="text" name="" id="inp" placeholder="E-mail">
-          <input type="text" class="regg" id="inp"  placeholder="Validation number ">
-          <input type="text" name="" id="inp" placeholder="Website (if available)">
-          <input type="text" name="" id="inp" placeholder="Location of operation">
-        </div>
-        <div class="benefits">
-          <span id="text1">What FoodForward offers</span>
-          <ul>
-            <li>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" height="16" width="16">
-                <rect fill="black" rx="8" height="16" width="16"></rect>
-                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="white"
-                  d="M5 8.5L7.5 10.5L11 6"></path>
+        <div class="space-y-6">
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd" />
               </svg>
-              <span id="text2">Unlock access to a network of donors, volunteers, and resources dedicated to ending hunger.</span>
-            </li>
-            <li>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" height="16" width="16">
-                <rect fill="black" rx="8" height="16" width="16"></rect>
-                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="white"
-                  d="M5 8.5L7.5 10.5L11 6"></path>
-              </svg>
-              <span id="text3">community of like-minded NGOs committed to making a difference in the lives of others.</span>
-            </li>
-          </ul>
-        </div>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg mb-1">Reduce Food Waste</h3>
+              <p class="opacity-80">Help restaurants donate surplus food instead of wasting it</p>
+            </div>
+          </div>
 
-        <div class="modal--footer">
-          <label class="price">Join for a cause</label>
-          <div class="upgrade-btn" onclick="GotoThankyou()">LOGIN</div>
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg mb-1">Support Communities</h3>
+              <p class="opacity-80">Connect with NGOs making real impact in your area</p>
+            </div>
+          </div>
+
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg mb-1">Build Your Brand</h3>
+              <p class="opacity-80">Enhance your reputation with sustainable practices</p>
+            </div>
+          </div>
         </div>
-      </form>
+      </div>
     </div>
 
+    <!-- Right Side - Form Section -->
+    <div class="w-full lg:w-1/2 flex items-center justify-center p-8 bg-gray-50 overflow-y-auto">
+      <div class="w-full max-w-md">
+          <!-- Mobile Logo -->
+          <div class="lg:hidden mb-8 text-center">
+            <img src="../images/logo.png" alt="FoodForward Logo" class="h-16 mx-auto mb-4" />
+            <h2 class="text-2xl font-bold text-gray-900">FoodForward</h2>
+          </div>        <!-- Tabs -->
+        <div class="flex border-b border-gray-300 mb-8">
+          <button type="button" id="loginTab"
+            class="tab-btn active flex-1 py-3 text-center font-semibold text-green-600 focus:outline-none">
+            Login
+          </button>
+          <button type="button" id="registerTab"
+            class="tab-btn flex-1 py-3 text-center font-semibold text-gray-700 focus:outline-none">
+            Register
+          </button>
+        </div>
+
+        <!-- Form -->
+        <form id="authForm" class="space-y-5">
+          <!-- Login Form -->
+          <div id="loginForm" class="fade-in">
+            <h2 class="text-3xl font-bold text-gray-900 mb-2">Welcome Back!</h2>
+            <p class="text-gray-700 mb-6">Sign in to continue making a difference</p>
+
+            <div class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-900 mb-2">Email Address</label>
+                <input type="email" id="loginEmail" name="loginEmail" placeholder="your@email.com" required
+                  class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-900" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-900 mb-2">Password</label>
+                <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter your password" required
+                  class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-900" />
+              </div>
+            </div>
+
+            <div id="errorMessage" class="mt-4 p-3 bg-red-100 text-red-700 rounded-lg hidden"></div>
+
+            <button type="submit"
+              class="btn-submit w-full mt-6 py-3 text-white font-semibold rounded-lg focus:outline-none">
+              LOGIN
+            </button>
+          </div>
+
+          <!-- Register Form -->
+          <div id="registerForm" class="hidden fade-in">
+            <h2 class="text-3xl font-bold text-gray-900 mb-2">Join FoodForward</h2>
+            <p class="text-gray-700 mb-6">Create an account to start helping</p>
+
+            <div class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-900 mb-2">Organization Name</label>
+                <input type="text" id="orgName" name="orgName" placeholder="Your organization name"
+                  class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-900" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-900 mb-2">Phone Number</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="+1 (555) 000-0000"
+                  class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-900" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-900 mb-2">Email Address</label>
+                <input type="email" id="registerEmail" name="registerEmail" placeholder="your@email.com"
+                  class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-900" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-900 mb-2">Password</label>
+                <input type="password" id="registerPassword" name="registerPassword" placeholder="Create a strong password"
+                  class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-900" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-900 mb-2">Website (Optional)</label>
+                <input type="url" id="website" name="website" placeholder="https://yourwebsite.com"
+                  class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-900" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-900 mb-2">Location</label>
+                <input type="text" id="location" name="location" placeholder="City, State"
+                  class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-900" />
+              </div>
+            </div>
+
+            <div id="registerErrorMessage" class="mt-4 p-3 bg-red-100 text-red-700 rounded-lg hidden"></div>
+
+            <button type="submit"
+              class="btn-submit w-full mt-6 py-3 text-white font-semibold rounded-lg focus:outline-none">
+              REGISTER
+            </button>
+          </div>
+        </form>
+
+        <!-- Back to Home -->
+                  <!-- Back to Home -->
+          <div class="mt-6 text-center">
+            <a href="/" class="text-green-600 hover:text-green-700 font-medium">
+              ← Back to Home
+            </a>
+          </div>
+      </div>
+    </div>
   </div>
+
   <script>
-    function GotoThankyou() {
-      window.location.href = "/thankLogin";
-    }
+    let isLoginMode = true;
+    const loginTab = document.getElementById('loginTab');
+    const registerTab = document.getElementById('registerTab');
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const authForm = document.getElementById('authForm');
+
+    // Initialize form validation state on page load
+    document.getElementById('loginEmail').required = true;
+    document.getElementById('loginPassword').required = true;
+    document.getElementById('registerEmail').required = false;
+    document.getElementById('registerPassword').required = false;
+
+      loginTab.addEventListener('click', () => {
+        isLoginMode = true;
+        loginTab.classList.add('active', 'text-green-600');
+        loginTab.classList.remove('text-gray-700');
+        registerTab.classList.remove('active', 'text-green-600');
+        registerTab.classList.add('text-gray-700');
+        loginForm.classList.remove('hidden');
+        registerForm.classList.add('hidden');
+        document.getElementById('errorMessage').classList.add('hidden');
+        document.getElementById('registerErrorMessage').classList.add('hidden');
+
+        // Enable login fields, disable register fields
+        document.getElementById('loginEmail').required = true;
+        document.getElementById('loginPassword').required = true;
+        document.getElementById('registerEmail').required = false;
+        document.getElementById('registerPassword').required = false;
+      });
+
+      registerTab.addEventListener('click', () => {
+        isLoginMode = false;
+        registerTab.classList.add('active', 'text-green-600');
+        registerTab.classList.remove('text-gray-700');
+        loginTab.classList.remove('active', 'text-green-600');
+        loginTab.classList.add('text-gray-700');
+        registerForm.classList.remove('hidden');
+        loginForm.classList.add('hidden');
+        document.getElementById('errorMessage').classList.add('hidden');
+        document.getElementById('registerErrorMessage').classList.add('hidden');
+
+        // Enable register fields, disable login fields
+        document.getElementById('loginEmail').required = false;
+        document.getElementById('loginPassword').required = false;
+        document.getElementById('registerEmail').required = true;
+        document.getElementById('registerPassword').required = true;
+      });    authForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const errorDiv = isLoginMode
+        ? document.getElementById('errorMessage')
+        : document.getElementById('registerErrorMessage');
+      errorDiv.classList.add('hidden');
+
+      let formData = {};
+
+      if (isLoginMode) {
+        formData = {
+          email: document.getElementById('loginEmail').value,
+          password: document.getElementById('loginPassword').value,
+        };
+      } else {
+        formData = {
+          email: document.getElementById('registerEmail').value,
+          password: document.getElementById('registerPassword').value,
+          organisationName: document.getElementById('orgName').value,
+          phoneNumber: document.getElementById('phoneNumber').value,
+          website: document.getElementById('website').value,
+          location: document.getElementById('location').value,
+        };
+      }
+
+      try {
+        const endpoint = isLoginMode ? '/login' : '/register';
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          window.location.href = data.redirectUrl;
+        } else {
+          errorDiv.textContent = data.error || 'An error occurred';
+          errorDiv.classList.remove('hidden');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        errorDiv.textContent = 'An error occurred. Please try again.';
+        errorDiv.classList.remove('hidden');
+      }
+    });
   </script>
-  <script src="../javascripts/login.js"></script>
 </body>
+
 </html>

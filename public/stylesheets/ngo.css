@@ -1,117 +1,118 @@
 @font-face {
-  font-family: 'Gilroy';
-  src: url('../gilroy.ttf') format('truetype');
+  font-family: "Gilroy";
+  src: url("../gilroy.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Gilroy', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gilroy", sans-serif;
 }
 
-html, body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: #f3f4f6;
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f3f4f6;
 }
 
 body {
-    padding: 20px;
-    min-height: 100vh;
+  padding: 20px;
+  min-height: 100vh;
 }
 
 #container {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    text-align: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 h1 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    margin-top: 0;
-    color: #333;
+  font-size: 32px;
+  margin-bottom: 20px;
+  margin-top: 0;
+  color: #333;
 }
 
 .filter-section {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
 }
 
 .filter-section label {
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
 }
 
 select,
 input[type="text"] {
-    padding: 12px 15px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    outline: none;
-    border-radius: 8px;
-    background-color: white;
-    min-width: 250px;
-    font-family: 'Gilroy', sans-serif;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  outline: none;
+  border-radius: 8px;
+  background-color: white;
+  min-width: 250px;
+  font-family: "Gilroy", sans-serif;
 }
 
 input[type="text"]::placeholder {
-    color: #999;
+  color: #999;
 }
 
 .people {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 25px;
-    justify-items: center;
-    margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  margin-top: 30px;
 }
 
 .person {
-    width: 100%;
-    max-width: 280px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    cursor: pointer;
-    background-color: white;
+  width: 100%;
+  max-width: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  background-color: white;
 }
 
 .person:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .person img {
-    width: 100%;
-    height: 180px;
-    border-radius: 12px 12px 0 0;
-    object-fit: cover;
-    object-position: center;
+  width: 100%;
+  height: 180px;
+  border-radius: 12px 12px 0 0;
+  object-fit: cover;
+  object-position: center;
 }
 
 .person h4 {
-    margin: 15px 0;
-    font-size: 18px;
-    color: #333;
-    padding: 0 15px 15px 15px;
-    font-family: 'Gilroy', sans-serif;
+  margin: 15px 0;
+  font-size: 18px;
+  color: #333;
+  padding: 0 15px 15px 15px;
+  font-family: "Gilroy", sans-serif;
 }
 
 .no-results {
-    grid-column: 1 / -1;
-    font-size: 18px;
-    color: #666;
-    padding: 40px;
+  grid-column: 1 / -1;
+  font-size: 18px;
+  color: #666;
+  padding: 40px;
 }

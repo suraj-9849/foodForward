@@ -1,0 +1,14 @@
+node_modules
+.git
+dist
+build
+coverage
+.vscode
+.idea
+*.log
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+.env
+.env.local
+.env.*.local

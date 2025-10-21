@@ -1,85 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Charity</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"
+    />
+    <link rel="stylesheet" href="../stylesheets/Charity.css" />
+    <!-- Integrate the tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Charity</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css" />
-  <link rel="stylesheet" href="../stylesheets/Charity.css">
-  <!-- Integrate the tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
-<body class="poppins" >
-  <div>
-    <div id="main" class="h-screen w-full flex items-center flex-col justtify-center gap-10 ">
-      <div id="nav" class="w-screen">
-        <h1 onclick="redirectToHome()"><img
-            style="height: 5vh; object-fit: cover; object-position: center; width: 13vw;margin-top: 2vh;"
-            src="../images/logo.png" alt=""></h1>
-        <div id="navpart-2">
-          <h1 class="font-semibold " id="home" onclick="redirectToHome()">Home</h1>
-          <h1 class="font-semibold " id="about" onclick="redirectToAbout()">About us</h1>
-          <h1 class="font-semibold " id="feeding" onclick="redirectToFeeding()"> Awards and Recognitions</h1>
-          <h1 class="font-semibold " id="Charity" onclick="redirectToCharity()">Charity</h1>
-          <h1 class="font-semibold " id="contact" onclick="redirectToContact()">Contact</h1>
-        </div>
-        <div id="navpart-3">
-
-          <img src="../images/login.png" onclick="redirectToPartner()">
-          <h1 id="partner" onclick="redirectToPartner()"></h1>
-        </div>
-      </div>
-      <div id="charity" class="min-h-[80vh] w-[80vw]  flex px-10 py-5  flex-col items-center ">
-        <h1 class="font-bold text-5xl mb-5 ">Our goal is to make the world a better place.</h1>
-        <div class="donateBox h-[90%] w-[90%] bg-grey-600 rounded-md flex p-7 gap-10">
-          <div class="w-1/2 h-full">
-            <img class="object-cover object-center h-full w-full " src="../images/CharityFood.jpg" alt="">
+  <body class="poppins">
+    <div>
+      <div id="main" class="h-screen w-full flex items-center flex-col justtify-center gap-10">
+        <div id="nav" class="w-screen">
+          <h1 onclick="redirectToHome()">
+            <img
+              style="
+                height: 5vh;
+                object-fit: cover;
+                object-position: center;
+                width: 13vw;
+                margin-top: 2vh;
+              "
+              src="../images/logo.png"
+              alt=""
+            />
+          </h1>
+          <div id="navpart-2">
+            <h1 class="font-semibold" id="home" onclick="redirectToHome()">Home</h1>
+            <h1 class="font-semibold" id="about" onclick="redirectToAbout()">About us</h1>
+            <h1 class="font-semibold" id="feeding" onclick="redirectToFeeding()">
+              Awards and Recognitions
+            </h1>
+            <h1 class="font-semibold" id="Charity" onclick="redirectToCharity()">Charity</h1>
+            <h1 class="font-semibold" id="contact" onclick="redirectToContact()">Contact</h1>
           </div>
-          <div class="w-1/2 h-full mt-7 ">
-            <h1 class="font-bold text-2xl mb-10 ">WHERE DOES MY MONEY ACTUALLY GO?</h1>
-            <h1 class="text-grey-200 text-xl mb-7 ">All donations support FoodForward mission to fight food insecurity
-              and provide food and
-              assistance to people and communities in need.</h1>
-            <div class="charityButtons  flex gap-10 items-center justify-center mb-7 ">
-              <button class="w-fit text-white py-2 px-5 rounded-md bg-blue-500 hover:bg-blue-600" onclick="">$5</button>
-              <button class="w-fit text-white py-2 px-5 rounded-md bg-green-500 hover:bg-green-600"
-                onclick="">$10</button>
-              <button class="w-fit text-white py-2 px-5 rounded-md bg-yellow-500 hover:bg-yellow-600"
-                onclick="">$50</button>
-              <button class="w-fit text-white py-2 px-5 rounded-md bg-red-500 hover:bg-red-600" onclick="">$100</button>
+          <div id="navpart-3">
+            <% if (loggedIn) { %>
+            <img
+              src="../images/login.png"
+              onclick="redirectToLogout()"
+              style="cursor: pointer"
+              title="Logout"
+            />
+            <% } else { %>
+            <img
+              src="../images/login.png"
+              onclick="redirectToPartner()"
+              style="cursor: pointer"
+              title="Login"
+            />
+            <% } %>
+          </div>
+        </div>
+        <div id="charity" class="min-h-[80vh] w-[80vw] flex px-10 py-5 flex-col items-center">
+          <h1 class="font-bold text-5xl mb-5">Our goal is to make the world a better place.</h1>
+          <div class="donateBox h-[90%] w-[90%] bg-grey-600 rounded-md flex p-7 gap-10">
+            <div class="w-1/2 h-full">
+              <img
+                class="object-cover object-center h-full w-full"
+                src="../images/CharityFood.jpg"
+                alt=""
+              />
             </div>
-            <div class="flex flex-col justify-center items-center mt-10">
-              <input type="text" class=" inputVal w-full mb-7 rounded-md py-2 px-10 text-center"
-                placeholder="Custom Amount(In Dollars)">
-             <form action="/stripe" method="post">
-              <button
-              class="overflow-hidden charityBtn  relative w-32 p-2 h-12 bg-black text-white border-none rounded-md text-xl font-bold cursor-pointer relative z-10 group">
-              Donate
-              <span
-                class="absolute w-36 h-32 -top-8 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"></span>
-              <span
-                class="absolute w-36 h-32 -top-8 -left-2 bg-purple-400 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"></span>
-              <span
-                class="absolute w-36 h-32 -top-8 -left-2 bg-purple-600 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-left"></span>
-              <span
-                class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10">Donating</span>
-            </button>
-             </form>
+            <div class="w-1/2 h-full mt-7">
+              <h1 class="font-bold text-2xl mb-10">WHERE DOES MY MONEY ACTUALLY GO?</h1>
+              <h1 class="text-grey-200 text-xl mb-7">
+                All donations support FoodForward mission to fight food insecurity and provide food
+                and assistance to people and communities in need.
+              </h1>
+              <div class="charityButtons flex gap-10 items-center justify-center mb-7">
+                <button
+                  class="w-fit text-white py-2 px-5 rounded-md bg-blue-500 hover:bg-blue-600"
+                  onclick=""
+                >
+                  $5
+                </button>
+                <button
+                  class="w-fit text-white py-2 px-5 rounded-md bg-green-500 hover:bg-green-600"
+                  onclick=""
+                >
+                  $10
+                </button>
+                <button
+                  class="w-fit text-white py-2 px-5 rounded-md bg-yellow-500 hover:bg-yellow-600"
+                  onclick=""
+                >
+                  $50
+                </button>
+                <button
+                  class="w-fit text-white py-2 px-5 rounded-md bg-red-500 hover:bg-red-600"
+                  onclick=""
+                >
+                  $100
+                </button>
+              </div>
+              <div class="flex flex-col justify-center items-center mt-10">
+                <input
+                  type="text"
+                  id="donationAmount"
+                  class="inputVal w-full mb-7 rounded-md py-2 px-10 text-center"
+                  placeholder="Custom Amount(In Dollars)"
+                />
+                <form id="donationForm" action="/stripe" method="post">
+                  <input type="hidden" id="amountField" name="amount" />
+                  <input type="hidden" name="type" value="money" />
+                  <button
+                    type="submit"
+                    class="overflow-hidden charityBtn relative w-32 p-2 h-12 bg-black text-white border-none rounded-md text-xl font-bold cursor-pointer relative z-10 group"
+                  >
+                    Donate
+                    <span
+                      class="absolute w-36 h-32 -top-8 -left-2 bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-left"
+                    ></span>
+                    <span
+                      class="absolute w-36 h-32 -top-8 -left-2 bg-purple-400 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-left"
+                    ></span>
+                    <span
+                      class="absolute w-36 h-32 -top-8 -left-2 bg-purple-600 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-left"
+                    ></span>
+                    <span
+                      class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10"
+                      >Donating</span
+                    >
+                  </button>
+                </form>
+              </div>
             </div>
-
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
-  <script src="../javascripts/Charity.js"></script>
-  <script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="../javascripts/Charity.js"></script>
+    <script>
       var home = document.querySelector("#nav #navpart-2 #home");
       var about = document.querySelector("#nav #navpart-2 #about");
       function redirectToAbout() {
@@ -103,30 +163,45 @@
       function redirectToPartner() {
         window.location.href = "/partner";
       }
-    let buttons = document.querySelectorAll(".charityButtons button");
-let inputVal = document.querySelector(".inputVal");
+      function redirectToLogout() {
+        window.location.href = "/logout";
+      }
+      let buttons = document.querySelectorAll(".charityButtons button");
+      let inputVal = document.querySelector(".inputVal");
 
-buttons.forEach(button => {
-    button.addEventListener('click', (e) => {
-        inputVal.value = e.target.textContent; 
-    });
-});
+      buttons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+          inputVal.value = e.target.textContent;
+        });
+      });
 
-let charityBtn = document.querySelector(".charityBtn")
-charityBtn.addEventListener("click",()=>{
-  if(inputVal.value){
-    window.location.href = "/stripe"
-  }else{
-    window.location.href = "/Charity"
-  }
-})
-gsap.from('img', {
+      // Handle form submission
+      let donationForm = document.getElementById("donationForm");
+      let amountField = document.getElementById("amountField");
+
+      donationForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Get the amount from input
+        let amount = inputVal.value.replace('$', '').trim();
+
+        if (!amount || isNaN(amount) || parseFloat(amount) <= 0) {
+          alert("Please enter a valid donation amount");
+          return;
+        }
+
+        // Set the amount in hidden field - this is a MONEY donation to platform
+        amountField.value = amount;
+
+        // Submit the form (no NGO needed for platform donations)
+        donationForm.submit();
+      });
+      gsap.from("img", {
         scale: 0,
         opacity: 0,
-        duration: 1, 
-        ease: "cubic-bezier(0.37, 0, 0.63, 1)"
-    });
-  </script>
-</body>
-
+        duration: 1,
+        ease: "cubic-bezier(0.37, 0, 0.63, 1)",
+      });
+    </script>
+  </body>
 </html>

@@ -1,197 +1,201 @@
 @font-face {
-  font-family: 'gilroy';
-  src: url('../gilroy.ttf') format('truetype');
+  font-family: "gilroy";
+  src: url("../gilroy.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-body{
-    font-family: gilroy;
-    }
-    #inp{
-        width: 85%;
-        padding: 12px;
-        margin: 1% 0px 18px 6%;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        box-sizing: border-box;
-    }
-    #cred{
-        margin-top:7%;
-    }
-    #main{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-    .modal {
-        width: 450px;
-        background: linear-gradient(180deg, #DCF9E0 0%, #FFFFFF 30.21%);
-        box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
-        border-radius: 16px;
-      }
-      
-      .banner {
-        width: 100%;
-        height: 30px;
-        margin: 0;
-        background-size: 100%;
-        background-repeat: no-repeat;
-      }
-      
-      .title {
-        font-weight: 700;
-        font-size: 17px;
-        line-height: 21px;
-        text-align: center;
-        color: #2B2B2F;
-        margin-bottom: 15px;
-      }
-      
-      .description {
-        max-width: 80%;
-        margin: auto;
-        font-weight: 600;
-        font-size: 11px;
-        line-height: 16px;
-        text-align: center;
-        color: #5F5D6B;
-      }
-      
-      .tab-container {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        
-        gap: 40px;
-        position: relative;
-        padding: 10px 10px 10px 10px;
-        background-color: #ebebec;
-        border-radius: 9px;
-        margin: 12px 20px 0px 20px;
-        justify-content: space-around;
-        align-items: center;
-        
-      }
-      
-    
-      
-      .tab {
-        width: 45%;
-        height: 35px;
-        position: relative;
-        z-index: 99;
-        background-color: transparent;
-        border: 0;
-        outline: none;
-        flex: none;
-        align-self: stretch;
-        flex-grow: 1;
-        cursor: pointer;
-        font-weight: 500;
-        text-align: center;
-        margin:2px;
-         border-radius:5px;
-       display: flex;
-       align-items: center;
-       justify-content: center;
-      }
-      
-      .tab--1:hover ~ .indicator {
-        left: 5px;
-      }
-      
-      .tab--2:hover ~ .indicator {
-        left: calc(50% - 2px);
-      }
-      
-      .benefits {
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-      
-      .benefits > span {
-        font-size: 15px;
-        color: #2B2B2F;
-        font-weight: 700;
-      }
-      
-      .benefits ul {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      
-      .benefits ul li {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 10px;
-      }
-      
-      .benefits ul li span {
-        font-weight: 600;
-        font-size: 12px;
-        color: #5F5D6B;
-      }
-      
-      .modal--footer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px;
-        border-top: 1px solid #ebebec;
-      }
-      
-      .price {
-        position: relative;
-        font-size: 18px;
-        color: #2B2B2F;
-        font-weight: 600;
-      }
-      
-      .price sup {
-        font-size: 13px;
-      }
-      
-      .price sub {
-        width: fit-content;
-        position: absolute;
-        font-size: 11px;
-        color: #5F5D6B;
-        bottom: 5px;
-        display: inline-block;
-      }
-      
-      .upgrade-btn {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        width: 215px;
-        height: 40px;
-        background: #0bdd12;
-        box-shadow: 0px 0.5px 0.5px #EFEFEF, 0px 1px 0.5px rgba(239, 239, 239, 0.5);
-        border-radius: 7px;
-        border: 0;
-        outline: none;
-        color: #ffffff;
-        font-size: 13px;
-        font-weight: 600;
-        transition: all 0.1s cubic-bezier(0.15, 0.83, 0.66, 1);
-      }
-      
-      .upgrade-btn:hover {
-        background-color: #07b90d;
-      }
-      
-      .form {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      .indicator{
-        left: 25px;
-      }
+body {
+  font-family: gilroy;
+}
+#inp {
+  width: 85%;
+  padding: 12px;
+  margin: 1% 0px 18px 6%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+#cred {
+  margin-top: 7%;
+}
+#main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.modal {
+  width: 450px;
+  background: linear-gradient(180deg, #dcf9e0 0%, #ffffff 30.21%);
+  box-shadow:
+    0px 187px 75px rgba(0, 0, 0, 0.01),
+    0px 105px 63px rgba(0, 0, 0, 0.05),
+    0px 47px 47px rgba(0, 0, 0, 0.09),
+    0px 12px 26px rgba(0, 0, 0, 0.1),
+    0px 0px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+}
+
+.banner {
+  width: 100%;
+  height: 30px;
+  margin: 0;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 21px;
+  text-align: center;
+  color: #2b2b2f;
+  margin-bottom: 15px;
+}
+
+.description {
+  max-width: 80%;
+  margin: auto;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 16px;
+  text-align: center;
+  color: #5f5d6b;
+}
+
+.tab-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  gap: 40px;
+  position: relative;
+  padding: 10px 10px 10px 10px;
+  background-color: #ebebec;
+  border-radius: 9px;
+  margin: 12px 20px 0px 20px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.tab {
+  width: 45%;
+  height: 35px;
+  position: relative;
+  z-index: 99;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  flex: none;
+  align-self: stretch;
+  flex-grow: 1;
+  cursor: pointer;
+  font-weight: 500;
+  text-align: center;
+  margin: 2px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab--1:hover ~ .indicator {
+  left: 5px;
+}
+
+.tab--2:hover ~ .indicator {
+  left: calc(50% - 2px);
+}
+
+.benefits {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.benefits > span {
+  font-size: 15px;
+  color: #2b2b2f;
+  font-weight: 700;
+}
+
+.benefits ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.benefits ul li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.benefits ul li span {
+  font-weight: 600;
+  font-size: 12px;
+  color: #5f5d6b;
+}
+
+.modal--footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-top: 1px solid #ebebec;
+}
+
+.price {
+  position: relative;
+  font-size: 18px;
+  color: #2b2b2f;
+  font-weight: 600;
+}
+
+.price sup {
+  font-size: 13px;
+}
+
+.price sub {
+  width: fit-content;
+  position: absolute;
+  font-size: 11px;
+  color: #5f5d6b;
+  bottom: 5px;
+  display: inline-block;
+}
+
+.upgrade-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 215px;
+  height: 40px;
+  background: #0bdd12;
+  box-shadow:
+    0px 0.5px 0.5px #efefef,
+    0px 1px 0.5px rgba(239, 239, 239, 0.5);
+  border-radius: 7px;
+  border: 0;
+  outline: none;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.1s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+
+.upgrade-btn:hover {
+  background-color: #07b90d;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.indicator {
+  left: 25px;
+}

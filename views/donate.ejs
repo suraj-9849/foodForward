@@ -1,69 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donate Food</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../stylesheets/donate.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Donate Food</title>
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../stylesheets/donate.css" />
-</head>
+  <body class="poppins">
+    <form action="#" class="form-section" id="donateForm">
+      <h2>Donate Food</h2>
 
-<body class="poppins">
-  <form action="#" class="form-section" id="donateForm">
-    <h2>Donate Food</h2>
+      <label for="nor">Name of Restaurant</label>
+      <input type="text" class="inputRestName" placeholder="Enter the name" id="nor" required />
 
-    <label for="nor">Name of Restaurant</label>
-    <input type="text" class="inputRestName" placeholder="Enter the name" id="nor" required />
+      <label for="location">Location</label>
+      <button type="button" id="locationButton" class="location-button">Select the Location</button>
 
-    <label for="location">Location</label>
-    <button type="button" id="locationButton" class="location-button">Select the Location</button>
+      <input type="submit" id="submit" value="Submit" />
+    </form>
 
-    <input type="submit" id="submit" value="Submit" />
-  </form>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const locationButton = document.getElementById("locationButton");
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"
-    referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous"
-    referrerpolicy="no-referrer"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const locationButton = document.getElementById('locationButton');
-
-      if (sessionStorage.getItem('locationSelected') === 'true') {
-        locationButton.textContent = "Location Selected";
-        locationButton.style.backgroundColor = "green";
-      }
-
-      locationButton.addEventListener('click', function () {
-        window.location.href = '/location'; 
-        this.textContent = "Select your location";
-        this.style.backgroundColor = "red";
-        sessionStorage.setItem('locationSelected', 'true');
-      });
-
-      document.getElementById('donateForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        const nor = document.getElementById('nor').value;
-
-        if (nor && sessionStorage.getItem('locationSelected') === 'true') {
-          sessionStorage.setItem('restaurantName', nor);
-
-          const location = 'Your Location'; 
-          if (location) {
-            window.location.href = `/donate/NGO?restaurant=${encodeURIComponent(nor)}&location=${encodeURIComponent(location)}`;
-          } else {
-            alert('Please select a location.');
-          }
-        } else {
-          alert('Please fill out all the fields and select the location.');
+        if (sessionStorage.getItem("locationSelected") === "true") {
+          locationButton.textContent = "Location Selected";
+          locationButton.style.backgroundColor = "green";
         }
 
-        localStorage.clear();
-      });
-    });
-  </script>
-</body>
+        locationButton.addEventListener("click", function () {
+          window.location.href = "/location";
+          this.textContent = "Select your location";
+          this.style.backgroundColor = "red";
+          sessionStorage.setItem("locationSelected", "true");
+        });
 
+        document.getElementById("donateForm").addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const nor = document.getElementById("nor").value;
+
+          if (nor && sessionStorage.getItem("locationSelected") === "true") {
+            sessionStorage.setItem("restaurantName", nor);
+
+            const location = "Your Location";
+            if (location) {
+              window.location.href = `/donate/NGO?restaurant=${encodeURIComponent(nor)}&location=${encodeURIComponent(location)}`;
+            } else {
+              alert("Please select a location.");
+            }
+          } else {
+            alert("Please fill out all the fields and select the location.");
+          }
+
+          localStorage.clear();
+        });
+      });
+    </script>
+  </body>
 </html>

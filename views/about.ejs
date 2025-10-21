@@ -1,193 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"
     />
-    <link rel="stylesheet" href="../stylesheets/about.css">
-</head>
-<body class="poppins" >
+    <link rel="stylesheet" href="../stylesheets/about.css" />
+  </head>
+  <body class="poppins">
     <div id="main">
-        <div id="nav">
-            <h1 onclick="redirectToHome()"><img style="height: 4vh; object-fit: cover; object-position: center; width: 13vw;margin-top: 2vh;" src="../images/logo.png" alt=""></h1>
-            <div id="navpart-2">
-              <h1 id="home" onclick="redirectToHome()">Home</h1>
-              <h1 id="about" onclick="redirectToAbout()">About us</h1>
-              <h1 id="feeding" onclick="redirectToFeeding()"> Awards and Recognitions</h1>
-              <h1 id="Charity" onclick="redirectToCharity()">Charity</h1>
-              <h1 id="contact" onclick="redirectToContact()">Contact</h1>
-            </div>
-            <div id="navpart-3">
-              <button
-                id="donate"
-                style="padding: 1vh 3vw; text-align: center; width: fit-content"
-                onclick="redirectToDonate()"
-              >
-                <i class="ri-heart-fill"></i>Donate
-              </button>
-              <img src="../images/login.png" onclick="redirectToPartner()">
-              <!-- <h1 id="partner" onclick="redirectToPartner()"></h1> -->
-            </div>
-          </div>
-    <div id="page1">
+      <div id="nav">
+        <h1 onclick="redirectToHome()">
+          <img
+            style="
+              height: 4vh;
+              object-fit: cover;
+              object-position: center;
+              width: 13vw;
+              margin-top: 2vh;
+            "
+            src="../images/logo.png"
+            alt=""
+          />
+        </h1>
+        <div id="navpart-2">
+          <h1 id="home" onclick="redirectToHome()">Home</h1>
+          <h1 id="about" onclick="redirectToAbout()">About us</h1>
+          <h1 id="feeding" onclick="redirectToFeeding()">Awards and Recognitions</h1>
+          <h1 id="Charity" onclick="redirectToCharity()">Charity</h1>
+          <h1 id="contact" onclick="redirectToContact()">Contact</h1>
+        </div>
+        <div id="navpart-3">
+          <button
+            id="donate"
+            style="padding: 1vh 3vw; text-align: center; width: fit-content"
+            onclick="redirectToDonate()"
+          >
+            <i class="ri-heart-fill"></i>Donate
+          </button>
+          <% if (loggedIn) { %>
+          <img
+            src="../images/login.png"
+            onclick="redirectToLogout()"
+            style="cursor: pointer"
+            title="Logout"
+          />
+          <% } else { %>
+          <img
+            src="../images/login.png"
+            onclick="redirectToPartner()"
+            style="cursor: pointer"
+            title="Login"
+          />
+          <% } %>
+        </div>
+      </div>
+      <div id="page1">
         <div id="left">
-            <div id="why">WHY?</div>
-            <div id="quote">
-                <p style="margin: 0;"> <span>45%</span> Of <br>Child Deaths Worldwide Are Due to Hunger & Related Causes</p>
-                <p style="margin: 21px;"> <span>14M</span> Children Suffer from Severe Acute Malnutrition every year</p>
-            </div>
-            <div class="images">
-                <img src="../images/img1.jpg" alt="">
-                <img src="../images/img2.jpg" alt="">
-                <img src="../images/img3.jpg" alt="">
-            </div>
-            <div id="fact">
-                Restaurants around the world waste a total of <span>1,300,000,000 tonnes </span>of food annually ...
-            </div>
+          <div id="why">WHY?</div>
+          <div id="quote">
+            <p style="margin: 0">
+              <span>45%</span> Of <br />Child Deaths Worldwide Are Due to Hunger & Related Causes
+            </p>
+            <p style="margin: 21px">
+              <span>14M</span> Children Suffer from Severe Acute Malnutrition every year
+            </p>
+          </div>
+          <div class="images">
+            <img src="../images/img1.jpg" alt="" />
+            <img src="../images/img2.jpg" alt="" />
+            <img src="../images/img3.jpg" alt="" />
+          </div>
+          <div id="fact">
+            Restaurants around the world waste a total of <span>1,300,000,000 tonnes </span>of food
+            annually ...
+          </div>
         </div>
         <div id="cont">
-            <div class="c1">Malnutrition</div>
-            <div class="c1">Food insecurity</div>
-            <div class="c1">Poverty</div>
-            <div class="c1">Famine</div>
-            <div class="c1">Starvation</div>
+          <div class="c1">Malnutrition</div>
+          <div class="c1">Food insecurity</div>
+          <div class="c1">Poverty</div>
+          <div class="c1">Famine</div>
+          <div class="c1">Starvation</div>
         </div>
-    </div>
-    <div id="page2">
-        <h1 style="color: black;">How FoodForward solves the hunger</h1>
-        <p id="para" >To connect restaurants with surplus food, a project like Food Forward employs a systematic approach
-            that begins with identifying potential donor establishments, including restaurants, cafes, bakeries, and
-            catering companies. Through targeted outreach efforts and partnership development, the project team
-            establishes collaborative relationships with interested restaurants, emphasizing the benefits of food
-            donation in reducing waste and supporting the community.</p>
-    </div>
-    <div id="page3">
+      </div>
+      <div id="page2">
+        <h1 style="color: black">How FoodForward solves the hunger</h1>
+        <p id="para">
+          To connect restaurants with surplus food, a project like Food Forward employs a systematic
+          approach that begins with identifying potential donor establishments, including
+          restaurants, cafes, bakeries, and catering companies. Through targeted outreach efforts
+          and partnership development, the project team establishes collaborative relationships with
+          interested restaurants, emphasizing the benefits of food donation in reducing waste and
+          supporting the community.
+        </p>
+      </div>
+      <div id="page3">
         <h1>Why does it help restaurants..?</h1>
         <div id="box">
-            <div class="card">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <p>
-                            <h3>Increased exposure</h3>
-                        </p>
-                    </div>
-                    <div class="card-back" style="display: flex;
-                    justify-content: center;
-                    align-items: center;">
-                        <p style=" font-size: 25px;
-                        width: 81%;
-                        margin: 0;
-                        backdrop-filter: blur(5px);
-                        color: #000;">Collaborating with our business can give your restaurant access to your audience or customer
-                            base, potentially exposing you to new customers you might not have reached otherwise.</p>
-                    </div>
-                </div>
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <h3>Increased exposure</h3>
+              </div>
+              <div
+                class="card-back"
+                style="display: flex; justify-content: center; align-items: center"
+              >
+                <p
+                  style="
+                    font-size: 25px;
+                    width: 81%;
+                    margin: 0;
+                    backdrop-filter: blur(5px);
+                    color: #000;
+                  "
+                >
+                  Collaborating with our business can give your restaurant access to your audience
+                  or customer base, potentially exposing you to new customers you might not have
+                  reached otherwise.
+                </p>
+              </div>
             </div>
-            <div class="card">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <p>
-                            <h3>Marketing Opportunities</h3>
-                        </p>
-                    </div>
-                    <div class="card-back" style="display: flex;
-                    justify-content: center;
-                    align-items: center;">
-                        <p style=" font-size: 25px;
-                        width: 81%;
-                        margin: 0;
-                        backdrop-filter: blur(5px);
-                        color: #000;">Collaborations often involve joint marketing efforts, such as cross-promotion on social media,
-                            email newsletters, or other marketing channels. This can help the restaurant increase brand
-                            awareness and attract more customers.</p>
-                    </div>
-                </div>
+          </div>
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <h3>Marketing Opportunities</h3>
+              </div>
+              <div
+                class="card-back"
+                style="display: flex; justify-content: center; align-items: center"
+              >
+                <p
+                  style="
+                    font-size: 25px;
+                    width: 81%;
+                    margin: 0;
+                    backdrop-filter: blur(5px);
+                    color: #000;
+                  "
+                >
+                  Collaborations often involve joint marketing efforts, such as cross-promotion on
+                  social media, email newsletters, or other marketing channels. This can help the
+                  restaurant increase brand awareness and attract more customers.
+                </p>
+              </div>
             </div>
-            <div class="card">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <p>
-                            <h3>Enhanced Credibility</h3>
-                        </p>
-                    </div>
-                    <div class="card-back" style="display: flex;
-                    justify-content: center;
-                    align-items: center;">
-                        <p style=" font-size: 25px;
-                        width: 81%;
-                        margin: 0;
-                        backdrop-filter: blur(5px);
-                        color: #000;">Partnering with another business, particularly one that is well-known or respected in their
-                            industry, can enhance the restaurant's credibility and reputation.</p>
-                    </div>
-                </div>
+          </div>
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <h3>Enhanced Credibility</h3>
+              </div>
+              <div
+                class="card-back"
+                style="display: flex; justify-content: center; align-items: center"
+              >
+                <p
+                  style="
+                    font-size: 25px;
+                    width: 81%;
+                    margin: 0;
+                    backdrop-filter: blur(5px);
+                    color: #000;
+                  "
+                >
+                  Partnering with another business, particularly one that is well-known or respected
+                  in their industry, can enhance the restaurant's credibility and reputation.
+                </p>
+              </div>
             </div>
-            <div class="card">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <p>
-                            <h3>Community Engagement</h3>
-                        </p>
-                    </div>
-                    <div class="card-back" style="display: flex;
-                    justify-content: center;
-                    align-items: center;">
-                        <p style=" font-size: 25px;
-                        width: 81%;
-                        margin: 0;
-                        backdrop-filter: blur(5px);
-                        color: #000;">Collaborating with local businesses or community organizations can help restaurants strengthen
-                            their ties to the community and demonstrate their commitment to supporting local
-                            initiatives.</p>
-                    </div>
-                </div>
+          </div>
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <h3>Community Engagement</h3>
+              </div>
+              <div
+                class="card-back"
+                style="display: flex; justify-content: center; align-items: center"
+              >
+                <p
+                  style="
+                    font-size: 25px;
+                    width: 81%;
+                    margin: 0;
+                    backdrop-filter: blur(5px);
+                    color: #000;
+                  "
+                >
+                  Collaborating with local businesses or community organizations can help
+                  restaurants strengthen their ties to the community and demonstrate their
+                  commitment to supporting local initiatives.
+                </p>
+              </div>
             </div>
-            <div class="card">
-                <div class="card-inner">
-                    <div class="card-front">
-                        <p>
-                            <h3>Attracts customers</h3>
-                        </p>
-                    </div>
-                    <div class="card-back" style="display: flex;
-                    justify-content: center;
-                    align-items: center;">
-                        <p style=" font-size: 25px;
-                        width: 81%;
-                        margin: 0;
-                        backdrop-filter: blur(5px);
-                        color: #000;">By supporting a cause like ours, restaurants can attract socially conscious customers who
-                            prefer to support businesses that give back to the community.</p>
-                    </div>
-                </div>
+          </div>
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">
+                <h3>Attracts customers</h3>
+              </div>
+              <div
+                class="card-back"
+                style="display: flex; justify-content: center; align-items: center"
+              >
+                <p
+                  style="
+                    font-size: 25px;
+                    width: 81%;
+                    margin: 0;
+                    backdrop-filter: blur(5px);
+                    color: #000;
+                  "
+                >
+                  By supporting a cause like ours, restaurants can attract socially conscious
+                  customers who prefer to support businesses that give back to the community.
+                </p>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-    <footer>
+      </div>
+      <footer>
         <div class="container">
           <div class="left">
             <h2>Subscribe to Our Emails</h2>
-            <p style="margin: 0;
-            font-size: 15px;
-            color: white;
-            ">
-              Stay up to date with the latest at Feed the Need Missions,
-              delivered right to your inbox. Sign up below to subscribe to our
-              newsletter and email updates.
+            <p style="margin: 0; font-size: 15px; color: white">
+              Stay up to date with the latest at Feed the Need Missions, delivered right to your
+              inbox. Sign up below to subscribe to our newsletter and email updates.
             </p>
             <form action="#" method="POST">
               <div class="input-group">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email Address*"
-                  required
-                />
+                <input type="email" name="email" placeholder="Email Address*" required />
                 <button type="submit">Subscribe</button>
               </div>
             </form>
@@ -214,7 +263,7 @@
             </ul>
           </div>
         </div>
-    </footer>
+      </footer>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -243,8 +292,10 @@
       function redirectToPartner() {
         window.location.href = "/partner";
       }
+      function redirectToLogout() {
+        window.location.href = "/logout";
+      }
     </script>
     <script src="../javascripts/about.js"></script>
-</body>
-
+  </body>
 </html>

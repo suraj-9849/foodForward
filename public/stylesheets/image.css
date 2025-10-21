@@ -1,75 +1,77 @@
 @font-face {
-  font-family: 'Gilroy';
-  src: url('../gilroy.ttf') format('truetype');
+  font-family: "Gilroy";
+  src: url("../gilroy.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Gilroy';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gilroy";
 }
 
-html, body {
-    width: 100%;
-    height: 100%;
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
 
-form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 60px;
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
 }
 
- h1{
-    font-weight:500 ;
-    font-family: Quicksand;
- }
-.search_results{
-     display: flex;
-     flex-wrap: wrap; 
-     justify-content: space-between;  
-     margin:0 auto; 
-    }
-   
- .search_result{
-    margin: 39px 20px 30px 34px;;
-    width: 20%;
-    height: 101%;
-    border-radius: 13px;
-    box-shadow: 0 0 6px rgba(0,0,0,0.2);
-    padding: 10px;
-    }
+h1 {
+  font-weight: 500;
+  font-family: Quicksand;
+}
+.search_results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+}
 
-    .search_result img{
-            height: 300px;
-            width: 300px;
-            object-fit: cover;      
-    }
+.search_result {
+  margin: 39px 20px 30px 34px;
+  width: 20%;
+  height: 101%;
+  border-radius: 13px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+}
 
-    .search_result a {
-        padding: 72px;
-        text-decoration: none;
-        align-content: center;
+.search_result img {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+}
 
-    }
+.search_result a {
+  padding: 72px;
+  text-decoration: none;
+  align-content: center;
+}
 
-    #show_more{
-        margin:10px 10px 10px 700px;
-        cursor: pointer;
-        display: none;
-    }
+#show_more {
+  margin: 10px 10px 10px 700px;
+  cursor: pointer;
+  display: none;
+}
 
-    .search_result {
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    }
-    
-    .search_result:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0 20px rgba(0, 0,0,0.5);
-    }
+.search_result {
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+}
+
+.search_result:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}

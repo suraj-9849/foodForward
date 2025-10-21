@@ -36,3 +36,5 @@ coverage/
 # Optional directories for specific editors and IDEs
 .vscode/
 .idea/
+
+/generated/prisma

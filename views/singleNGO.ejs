@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
@@ -15,10 +15,12 @@
       .card.cart {
         width: 50vw;
         background: #ffffff;
-        box-shadow: 0px 3.5vh 1.5vh rgba(0, 0, 0, 0.01),
+        box-shadow:
+          0px 3.5vh 1.5vh rgba(0, 0, 0, 0.01),
           0px 2vh 1.5vh rgba(0, 0, 0, 0.05),
           0px 0.94vh 0.94vh rgba(0, 0, 0, 0.09),
-          0px 0.25vh 0.54vh rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+          0px 0.25vh 0.54vh rgba(0, 0, 0, 0.1),
+          0px 0px 0px rgba(0, 0, 0, 0.1);
         border-radius: 4.75vh 4.75vh 1.33vh 1.33vh;
         padding: 2vh;
       }
@@ -62,13 +64,9 @@
         gap: 1.2vw;
         width: 15vw;
         height: 4.5vh;
-        background: linear-gradient(
-          180deg,
-          #4480ff 0%,
-          #115dfc 50%,
-          #0550ed 100%
-        );
-        box-shadow: 0px 0.33vh 0.33vh #efefef,
+        background: linear-gradient(180deg, #4480ff 0%, #115dfc 50%, #0550ed 100%);
+        box-shadow:
+          0px 0.33vh 0.33vh #efefef,
           0px 0.67vh 0.33vh rgba(239, 239, 239, 0.5);
         border-radius: 0.67vh;
         border: 0;
@@ -139,104 +137,187 @@
         background-color: #d32f2f;
       }
     </style>
-</head>
-<body class="poppins" style="background-color: #F3F4F6;">
-  <body style="background-color: #F3F4F6;">
-    <div class="master-container" style="display: flex; flex-direction: column;">
-        <h1> <%= restaurant %></h1> <!-- Changed id to name -->
+  </head>
+  <body class="poppins" style="background-color: #f3f4f6">
+    <body style="background-color: #f3f4f6">
+      <div class="master-container" style="display: flex; flex-direction: column">
+        <h1><%= restaurant %></h1>
+        <!-- Changed id to name -->
         <div class="card cart">
-            <label class="title">The Food that you want to Donate to <%= name %></label> <!-- Added restaurant here -->
-            <form id="search_form">
-                <input type="text" id="search_input" placeholder="Search for food items" />
-                <button type="submit" id="search">Search</button>
-            </form>
-            <div class="products">
-                <!-- Dynamic search results will be inserted here -->
-            </div>
-            <button id="donateButton">Donate</button>
+          <label class="title">The Food that you want to Donate to <%= name %></label>
+          <!-- Added restaurant here -->
+          <form id="search_form">
+            <input type="text" id="search_input" placeholder="Search for food items" />
+            <button type="submit" id="search">Search</button>
+          </form>
+          <div class="products">
+            <!-- Dynamic search results will be inserted here -->
+          </div>
+          <button id="donateButton">Donate</button>
         </div>
-    </div>
+      </div>
 
-    <script>
+      <script>
         const key = "xgz4LFJyZJXhjgR1mdZDbzAspWJUTX2h4onn1_hj_QM";
 
         let form = document.getElementById("search_form");
         let input = document.getElementById("search_input");
         let products = document.querySelector(".products");
         let donateButton = document.getElementById("donateButton");
-        let name = '<%= name %>'; // Get the name from the server-side rendering
-        let restaurant = '<%= restaurant %>'; // Get the restaurant from the server-side rendering
+        let name = "<%= name %>"; // Get the name from the server-side rendering
+        let restaurant = "<%= restaurant %>"; // Get the restaurant from the server-side rendering
 
         let s_input = "";
 
         async function searchImages() {
-            s_input = input.value;
-            let url = `https://api.unsplash.com/search/photos?query=${s_input}&client_id=${key}`;
+          s_input = input.value;
+          let url = `https://api.unsplash.com/search/photos?query=${s_input}&client_id=${key}`;
 
-            const response = await fetch(url);
-            const rawData = await response.json();
-            const result = rawData.results[0]; // Fetch the first image result
+          const response = await fetch(url);
+          const rawData = await response.json();
+          const result = rawData.results[0]; // Fetch the first image result
 
-            const productDiv = document.createElement("div");
-            productDiv.classList.add("product");
+          const productDiv = document.createElement("div");
+          productDiv.classList.add("product");
 
-            const image = document.createElement("img");
-            image.src = result.urls.small;
-            image.style.height = "10vh";
-            image.style.width = "5vw";
-            image.style.borderRadius = "50%";
-            image.style.objectFit = "cover";
-            image.style.objectPosition = "center";
+          const image = document.createElement("img");
+          image.src = result.urls.small;
+          image.style.height = "10vh";
+          image.style.width = "5vw";
+          image.style.borderRadius = "50%";
+          image.style.objectFit = "cover";
+          image.style.objectPosition = "center";
 
-            const detailsDiv = document.createElement("div");
-            detailsDiv.classList.add("detailsDiv");
-            const nameSpan = document.createElement("span");
-            nameSpan.textContent = s_input;
+          const detailsDiv = document.createElement("div");
+          detailsDiv.classList.add("detailsDiv");
+          const nameSpan = document.createElement("span");
+          nameSpan.textContent = s_input;
 
-            detailsDiv.appendChild(nameSpan);
+          detailsDiv.appendChild(nameSpan);
 
-            const quantityDiv = document.createElement("div");
-            quantityDiv.classList.add("quantityDiv");
-            const minusButton = document.createElement("button");
-            minusButton.textContent = "-";
-            const quantityLabel = document.createElement("label");
-            quantityLabel.textContent = " 1 "; // Default quantity
-            const plusButton = document.createElement("button");
-            plusButton.textContent = "+";
+          const quantityDiv = document.createElement("div");
+          quantityDiv.classList.add("quantityDiv");
+          const minusButton = document.createElement("button");
+          minusButton.textContent = "-";
+          const quantityLabel = document.createElement("label");
+          quantityLabel.textContent = " 1 "; // Default quantity
+          const plusButton = document.createElement("button");
+          plusButton.textContent = "+";
 
-            minusButton.addEventListener("click", () => {
-                let currentQuantity = parseInt(quantityLabel.textContent);
-                if (currentQuantity > 1) {
-                    quantityLabel.textContent = (currentQuantity - 1).toString();
-                }
-            });
+          minusButton.addEventListener("click", () => {
+            let currentQuantity = parseInt(quantityLabel.textContent);
+            if (currentQuantity > 1) {
+              quantityLabel.textContent = (currentQuantity - 1).toString();
+            }
+          });
 
-            plusButton.addEventListener("click", () => {
-                let currentQuantity = parseInt(quantityLabel.textContent);
-                quantityLabel.textContent = (currentQuantity + 1).toString();
-            });
+          plusButton.addEventListener("click", () => {
+            let currentQuantity = parseInt(quantityLabel.textContent);
+            quantityLabel.textContent = (currentQuantity + 1).toString();
+          });
 
-            quantityDiv.appendChild(minusButton);
-            quantityDiv.appendChild(quantityLabel);
-            quantityDiv.appendChild(plusButton);
+          quantityDiv.appendChild(minusButton);
+          quantityDiv.appendChild(quantityLabel);
+          quantityDiv.appendChild(plusButton);
 
-            productDiv.appendChild(image);
-            productDiv.appendChild(detailsDiv);
-            productDiv.appendChild(quantityDiv);
+          productDiv.appendChild(image);
+          productDiv.appendChild(detailsDiv);
+          productDiv.appendChild(quantityDiv);
 
-            products.appendChild(productDiv);
+          products.appendChild(productDiv);
 
-            donateButton.style.display = "block"; 
+          donateButton.style.display = "block";
         }
 
         form.addEventListener("submit", (event) => {
-            event.preventDefault();
-            searchImages();
+          event.preventDefault();
+          searchImages();
         });
 
-        donateButton.addEventListener("click", () => {
-            window.location.href = `/thankyou?name=${name}&restaurant=${restaurant}`;     });
-    </script>
-</body>
-</body>
+        donateButton.addEventListener("click", async () => {
+          // Collect all food items and quantities
+          const foodItems = [];
+          const productDivs = document.querySelectorAll('.product');
+
+          productDivs.forEach(div => {
+            const foodName = div.querySelector('.detailsDiv span').textContent;
+            const quantity = div.querySelector('.quantityDiv label').textContent.trim();
+            foodItems.push(`${foodName} (${quantity})`);
+          });
+
+          const foodType = foodItems.join(', ');
+          const totalQuantity = productDivs.length;
+
+          try {
+            // Fetch NGO data to get the ID
+            const ngoResponse = await fetch('/api/ngos');
+            const ngoData = await ngoResponse.json();
+
+            // Find the NGO by name (case-insensitive, trim whitespace)
+            let selectedNGO = ngoData.ngos.find(ngo =>
+              ngo.name.toLowerCase().trim() === name.toLowerCase().trim()
+            );
+
+            // If NGO doesn't exist, create it automatically
+            if (!selectedNGO) {
+              console.log('NGO not found, creating new NGO:', name);
+
+              const createNGOResponse = await fetch('/api/ngos', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  name: name,
+                  description: 'Auto-created NGO from donation',
+                  location: 'Location to be updated',
+                }),
+              });
+
+              const createNGOResult = await createNGOResponse.json();
+
+              if (createNGOResult.success) {
+                selectedNGO = createNGOResult.ngo;
+                console.log('✅ NGO created successfully:', selectedNGO.name, 'ID:', selectedNGO.id);
+              } else {
+                alert('Failed to create NGO. Please try again.');
+                return;
+              }
+            } else {
+              console.log('Found existing NGO:', selectedNGO.name, 'ID:', selectedNGO.id);
+            }
+
+            // Submit the donation to the backend
+            const response = await fetch('/restaurant-donation', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                restaurantName: restaurant,
+                ngoId: selectedNGO.id,
+                foodType: foodType,
+                quantity: totalQuantity.toString(),
+                pickupLocation: 'To be confirmed',
+                contactNumber: 'To be confirmed',
+                status: 'completed',
+              }),
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+              // Redirect to thank you page
+              window.location.href = `/thankyou?name=${name}&restaurant=${restaurant}`;
+            } else {
+              alert('Failed to submit donation. Please try again.');
+            }
+          } catch (error) {
+            console.error('Error submitting donation:', error);
+            alert('An error occurred. Please try again.');
+          }
+        });
+      </script>
+    </body>
+  </body>
 </html>
